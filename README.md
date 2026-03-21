@@ -7,10 +7,13 @@ verifier-plus is a [Next.js](https://nextjs.org/) application providing two rela
 * ***Online Credential Storage*** - server storage for Verifiable Credentials, to enable sharing a public link for a credential.
 
 > [!NOTE]
-> verifier-plus upports versions 1 and 2 of [Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/), including version 3 of [Open Badges](https://www.imsglobal.org/spec/ob/v3p0), but NOT version 2 of Open Badges.
+> verifier-plus supports versions 1 and 2 of [Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/), including version 3 of [Open Badges](https://www.imsglobal.org/spec/ob/v3p0), but NOT version 2 of Open Badges.
+
+> [!NOTE]
+> **BLUE-verifier (this fork)** extends verifier-plus with DC4EU protocol support: JWT-VC, SD-JWT, EBSI/BLUE trust networks, and OID4VP verifier-initiated credential requests. See the [DC4EU Extensions](#dc4eu-extensions) section below.
 
 >[!TIP]
->The [Digital Credentials Consortium](http://dcconsortium.org) runs an instance of this application at [verifierplus.org](https://verifierplus.org), but anyone is free to run their own instance elsewhere.
+>The [Digital Credentials Consortium](http://dcconsortium.org) runs an instance of the original application at [verifierplus.org](https://verifierplus.org), but anyone is free to run their own instance elsewhere.
 
 Let's talk a bit about the two services: credential verification and credential storage.
 
@@ -224,6 +227,56 @@ Note too that you can set which browsers you'd like to run the tests on using th
 >[!TIP]
 >If for whatever reason you don't want to set the playwright PLAYWRIGHT_TEST_URL as an environment variable you can of course also directly change the baseURL in [playwright.config.ts](./playwright.config.ts).
 
+
+## DC4EU Extensions
+
+This fork (BLUE-verifier) adds support for the [DC4EU](https://dc4eu.eu/) (Digital Credentials for Europe) ecosystem:
+
+### Supported Credential Formats
+- **JSON-LD VC** (Ed25519Signature2020, EdDSA-RDFC-2022) — original verifier-plus
+- **JWT-VC** (ES256/P-256) — W3C VC-JWT format used by DC4EU/EBSI
+- **SD-JWT VC** (Selective Disclosure JWT) — with disclosure decoding and claim reconstruction
+
+### Supported DID Methods
+- `did:key` (Ed25519 + P-256), `did:web`, `did:jwk`, `did:ebsi`, `did:blue`
+
+### Trust Frameworks
+- **DCC Known Issuer Registries** — original verifier-plus (Pilot, Sandbox, Community, DCC, MSP)
+- **EBSI Trusted Issuers Registry** — EU Blockchain Services Infrastructure (Pilot + Conformance)
+- **BLUE Trusted Issuers Registry** — RedIRIS academic trust network (PROD + PRE + DES)
+
+### OID4VP (OpenID for Verifiable Presentations)
+Verifier-initiated credential requests via the OID4VP protocol:
+- **Query modes**: `presentation_definition` (legacy) and `dcql_query` (Draft 24+)
+- **Response modes**: `direct_post` (plain) and `direct_post.jwt` (JARM encrypted with ECDH-ES + A128GCM)
+- **Credential presets**: VerifiablePID, EducationalID, HigherEducationDiploma, ProofOfEnrolment
+- **Compatible wallets**: [Learner Credential Wallet](https://lcw.app) and any OID4VP-compliant wallet
+
+### OID4VP API Routes
+- `POST /api/oid4vp/session` — Create a new OID4VP session
+- `GET /api/oid4vp/session/[sessionId]` — Poll session status
+- `GET /api/oid4vp/request/[sessionId]` — Serve authorization request JWT to wallets
+- `POST /api/oid4vp/response` — Receive wallet response (direct_post / JARM)
+
+### Environment Variables (OID4VP)
+```
+OID4VP_VERIFIER_DID=              # Verifier's DID (optional, defaults to deployment URL)
+OID4VP_SESSION_TTL=300000         # Session timeout in ms (default: 5 minutes)
+EBSI_DID_REGISTRY_URL=            # Override EBSI DID Registry (default: api-pilot.ebsi.eu)
+EBSI_TIR_URL=                     # Override EBSI TIR (default: api-pilot.ebsi.eu)
+BLUE_DID_REGISTRY_URL=            # Override BLUE DID Registry (default: api.blue.rediris.es)
+BLUE_TIR_URL=                     # Override BLUE TIR (default: api.blue.rediris.es)
+```
+
+### Key Architecture Additions
+```
+app/lib/crypto/         — ES256, JWT, SD-JWT, JWE cryptographic operations
+app/lib/ebsi/           — DID resolver, trust registry client, network config
+app/lib/oid4vp/         — OID4VP verifier logic, session management, types
+app/api/oid4vp/         — OID4VP API routes
+app/components/OID4VPRequest/      — OID4VP UI (QR code, polling, presets)
+app/components/TrustRegistryCard/  — EBSI/BLUE TIR details display
+```
 
 ## Next.js
 
