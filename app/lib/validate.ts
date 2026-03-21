@@ -17,7 +17,8 @@ export type ResultLog = {
   id: string,
   valid: boolean,
   foundInRegistries?: string[],
-  error?: any
+  error?: any,
+  networkError?: boolean
 }
 
 export type Result = {
@@ -31,6 +32,7 @@ export type Result = {
 export type VerifyResponse = {
   verified: boolean;
   results: Result[];
+  tirDetails?: import('../types/credential.d').IssuerTIRDetails;
 }
 
 export async function verifyPresentation(

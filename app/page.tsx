@@ -11,8 +11,11 @@ import { VerificationContext } from '@/lib/verificationContext'
 import { VerifiableCredential } from '@/types/credential'
 import { useVerification } from '@/lib/useVerification'
 import { credentialsFromQrText } from '@/lib/decode';
+import { isJwtString, extractVcAuto } from '@/lib/crypto/jwtVc';
+import { isSdJwt } from '@/lib/crypto/sdJwt';
 import { TopBar } from '@/components/TopBar/TopBar'
 import { BottomBar } from '@/components/BottomBar/BottomBar'
+import { OID4VPRequest } from '@/components/OID4VPRequest/OID4VPRequest'
 import { extractCredentialsFrom, VerifiableObject } from '@/lib/verifiableObject'
 import { QRCodeSVG } from 'qrcode.react';
 import { v4 as uuidv4 } from 'uuid';
@@ -36,7 +39,8 @@ export default function Home() {
   const [fileError, setFileError] = useState(false);
   const [scanError, setScanError] = useState(false);
   const [credential, setCredential] = useState<VerifiableCredential | undefined>(undefined);
-  const credentialContext = useVerification(credential);
+  const [rawJwt, setRawJwt] = useState<string | undefined>(undefined);
+  const credentialContext = useVerification(credential, rawJwt);
   const [wasMulti, setWasMulti] = useState(false);
   const { version } = packageJson;
 
@@ -56,6 +60,7 @@ export default function Home() {
 
       if (window.location.hash === '/') {
         setCredential(undefined);
+        setRawJwt(undefined);
         setWasMulti(false);
         setTextArea('');
       } else if (window.location.hash.startsWith('#verify')) {
@@ -70,11 +75,13 @@ export default function Home() {
         }
       } else if (window.location.hash === '') {
         setCredential(undefined);
+        setRawJwt(undefined);
         setWasMulti(false);
         setTextArea('');
       } else {
         history.replaceState(null, '', '/');
         setCredential(undefined);
+        setRawJwt(undefined);
         setWasMulti(false);
         setTextArea('');
       }
@@ -178,6 +185,22 @@ export default function Home() {
             }
           } else {
             console.log('Keyword not found');
+          }
+        }
+
+        // Check if file content is JWT/SD-JWT
+        const trimmedText = text.trim();
+        if (isSdJwt(trimmedText) || isJwtString(trimmedText)) {
+          try {
+            const vc = extractVcAuto(trimmedText) as unknown as VerifiableCredential;
+            setRawJwt(trimmedText);
+            history.pushState({ credential: vc }, '', '#verify/results');
+            setCredential(vc);
+            setFileError(false);
+            return;
+          } catch {
+            setFileError(true);
+            return;
           }
         }
 
@@ -291,6 +314,23 @@ export default function Home() {
   }
 
   async function verifyTextArea() {
+    const trimmed = textArea.trim();
+
+    // Check for JWT-VC or SD-JWT input
+    if (isSdJwt(trimmed) || isJwtString(trimmed)) {
+      try {
+        const vc = extractVcAuto(trimmed) as unknown as VerifiableCredential;
+        setRawJwt(trimmed);
+        history.pushState({ credential: vc }, '', '#verify/results');
+        setCredential(vc);
+        setTextAreaError(false);
+        return;
+      } catch {
+        setTextAreaError(true);
+        return;
+      }
+    }
+
     // check if textarea is json
     let input = "";
     if (!checkJson(textArea)) {
@@ -298,7 +338,6 @@ export default function Home() {
       if (textArea.startsWith('http')) {
         history.pushState(null, '', `/#verify?vc=${encodeURIComponent(textArea)}`);
         const json = await getJSONFromURL(textArea);
-        console.log('🚀 ~ verifyTextArea ~ json:', json)
         if (json) {
           verifyCredential(json);
         }
@@ -321,13 +360,16 @@ export default function Home() {
   }
 
   async function onScan(json: string): Promise<Boolean> {
-    const fromqr = await credentialsFromQrText(json);
-    if (fromqr === null) { return false; }
-    // get first cred. this will eventually need to be changed
-    const cred = fromqr[0];
+    const result = await credentialsFromQrText(json);
+    if (result === null) { return false; }
+
+    const cred = result.credentials[0];
+    if (result.rawJwt) {
+      setRawJwt(result.rawJwt);
+    }
 
     history.pushState(null, '', '#verify/results');
-    if (fromqr.length > 1) { setWasMulti(true); }
+    if (result.credentials.length > 1) { setWasMulti(true); }
     setCredential(cred);
     return true;
   }
@@ -470,7 +512,7 @@ export default function Home() {
               id='textarea'
               data-testid="vc-text-area"
             />
-            <label id='textarea-label' htmlFor='textarea'>Paste JSON or URL</label>
+            <label id='textarea-label' htmlFor='textarea'>Paste JSON, JWT, SD-JWT, or URL</label>
           </div>
           <Button data-testid="verify-btn" className={styles.verifyTextArea} text='Verify' onClick={verifyTextArea}/>
         </div>
@@ -481,7 +523,7 @@ export default function Home() {
               warning
             </span>
             <p className={styles.error}>
-              The JSON is not a Verifiable Credential or an Open Badge 3.0
+              The input is not a valid Verifiable Credential (JSON, JWT, or SD-JWT)
             </p>
           </div>
         )}
@@ -503,10 +545,10 @@ export default function Home() {
             id="file-upload"
             className={styles.visuallyHidden}
             onChange={handleBrowse}
-            accept=".json,.png"
+            accept=".json,.png,.jwt"
           />
 
-          <span className={styles.supportText}>Supports JSON</span>
+          <span className={styles.supportText}>Supports JSON, JWT, SD-JWT</span>
         </div>
 
         <div style={{ marginTop: '1em' }}>
@@ -528,6 +570,15 @@ export default function Home() {
             </p>
           </div>
         )}
+
+        <OID4VPRequest onCredentialReceived={(cred, result, vpToken) => {
+          const vc = cred as unknown as VerifiableCredential;
+          if (vpToken) {
+            setRawJwt(vpToken);
+          }
+          history.pushState({ credential: vc }, '', '#verify/results');
+          setCredential(vc);
+        }} />
 
         <div>
           <Button

@@ -5,6 +5,7 @@ import { useVerificationContext } from '@/lib/verificationContext';
 import { VerifyResponse } from '@/types/credential';
 import styles from './VerificationCard.module.css';
 import { RegistryCard } from '@/components/RegistryCard/RegistryCard';
+import { TrustRegistryCard } from '@/components/TrustRegistryCard/TrustRegistryCard';
 import { TestId } from '@/lib/testIds';
 
 export const UNSUCCESSFUL_VERIFICATION_MSG = 'This credential was not verified successfully.';
@@ -158,6 +159,15 @@ export const VerificationCard = () => {
                   );
                 }
 
+                return null;
+              })()}
+
+              {/* EBSI/BLUE Trusted Issuer Registry details */}
+              {(() => {
+                const tirDetails = (verificationResult as VerifyResponse)?.tirDetails;
+                if (tirDetails && tirDetails.trusted) {
+                  return <TrustRegistryCard tirDetails={tirDetails} />;
+                }
                 return null;
               })()}
             </div>

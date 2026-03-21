@@ -174,9 +174,28 @@ export type VerifyResult = {
   log: VerifyResultLog[];
 }
 
+export type IssuerAccreditationInfo = {
+  credentialTypes: string[];
+  limitJurisdiction: string | null;
+  validFrom: string | null;
+  validUntil: string | null;
+}
+
+export type IssuerTIRDetails = {
+  issuerDid: string;
+  networkName: string;
+  environmentLabel: string | null;
+  trusted: boolean;
+  issuerName: string | null;
+  accreditingOrganization: string | null;
+  accreditingDid: string | null;
+  accreditations: IssuerAccreditationInfo[];
+}
+
 export type VerifyResponse = {
   hasStatusError?: any;
   verified: boolean;
   results: VerifyResult[];
   registryName?: string[];
+  tirDetails?: IssuerTIRDetails;
 }

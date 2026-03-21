@@ -2,11 +2,22 @@ import { fromQrCode } from '@digitalcredentials/vpqr';
 import { securityLoader } from '@digitalcredentials/security-document-loader';
 import type { VerifiableCredential } from '../types/credential.d';
 import { VerifiableObject, extractCredentialsFrom } from './verifiableObject';
+import { isJwtString, extractVcAuto } from './crypto/jwtVc';
+import { isSdJwt } from './crypto/sdJwt';
 
 const documentLoader = securityLoader().build();
 const vpqrPattern = /^VP1-[A-Z|0-9]+/;
 
-export async function credentialsFromQrText(text: string): Promise<VerifiableCredential[] | null> {
+/**
+ * Result of decoding a credential input.
+ * For JWT/SD-JWT, includes the raw token for server-side signature verification.
+ */
+export type DecodedCredentialResult = {
+  credentials: VerifiableCredential[];
+  rawJwt?: string;
+}
+
+export async function credentialsFromQrText(text: string): Promise<DecodedCredentialResult | null> {
 
   let url;
   try {
@@ -19,31 +30,40 @@ export async function credentialsFromQrText(text: string): Promise<VerifiableCre
     if (url?.protocol === "http:" || url?.protocol === "https:") {
       const json = await getJSONFromURL(url.toString())
       const credentials = extractCredentialsFrom(json)
-      return credentials;
+      return credentials ? { credentials } : null;
     }
   } catch (e) {
-    // It was a URL but didn't return a credential.
-    // TODO: might eventually want to return a more meaningful message
     return null;
+  }
+
+  // Check for SD-JWT (must check before JWT since SD-JWT also contains dots)
+  if (isSdJwt(text)) {
+    try {
+      const vc = extractVcAuto(text) as unknown as VerifiableCredential;
+      return { credentials: [vc], rawJwt: text };
+    } catch {
+      return null;
+    }
+  }
+
+  // Check for JWT-VC
+  if (isJwtString(text)) {
+    try {
+      const vc = extractVcAuto(text) as unknown as VerifiableCredential;
+      return { credentials: [vc], rawJwt: text };
+    } catch {
+      return null;
+    }
   }
 
   try {
     const { vp }: { vp: VerifiableObject } = await fromQrCode({ text, documentLoader });
     const vc = extractCredentialsFrom(vp);
-    return vc;
+    return vc ? { credentials: vc } : null;
 
   } catch (error) {
-    // TODO: might eventually want to return a more meaningful message
     return null;
   }
-
-  // TODO: We need to separate verificaiton of the presentation from the credentials inside.
-  // https://www.pivotaltracker.com/story/show/179830339
-  //const isVerified = await verifyPresentation(vp);
-
-  //if (!isVerified) {
-  //  throw new Error(PresentationError.IsNotVerified);
-  //}
 
 }
 

@@ -5,6 +5,12 @@ export type CredentialCardProps = {
   wasMulti?: Boolean
 }
 
+export type SubjectField = {
+  key: string,
+  label: string,
+  value: string
+}
+
 export type CredentialDisplayFields = {
   credentialName: string | undefined,
   issuedTo: string | undefined,
@@ -14,4 +20,6 @@ export type CredentialDisplayFields = {
   criteria: string | undefined,
   achievementImage?: string | undefined,
   achievementType?: string | undefined,
+  vct?: string | undefined,
+  subjectFields?: SubjectField[],
 }
