@@ -1,0 +1,28 @@
+{
+  "pageTitle": "BLUE VerifierPlus FAQ",
+  "title": "BLUE VerifierPlus Veelgestelde vragen",
+  "whyTrustTitle": "Waarom ons vertrouwen?",
+  "whyTrust1": "BLUE VerifierPlus is gebaseerd op opensource software ontwikkeld door het <dccLink>Digital Credentials Consortium</dccLink>, een netwerk van toonaangevende internationale universiteiten die een open infrastructuur ontwerpen voor digitale academische credentials.",
+  "whyTrust2": "Deze instantie is doorontwikkeld voor <blueLink>BLUE</blueLink>, het academische vertrouwensnetwerk beheerd door <redirisLink>RedIRIS</redirisLink> (Red.es) in samenwerking met <crueLink>CRUE Universidades Españolas</crueLink>.",
+  "whyTrust3": "Deze website implementeert <githubLink>opensource bibliotheken</githubLink> die open technische standaarden ondersteunen voor ondersteunde digitale credentials.",
+  "whyTrust4": "Neem bij vragen contact op met <emailLink>blue@rediris.es</emailLink>.",
+  "formatsTitle": "Welke formaten van digitale academische credentials worden ondersteund?",
+  "formatsIntro": "BLUE VerifierPlus ondersteunt digitale academische credentials:",
+  "formatsList": {
+    "w3c": "Volgens het W3C Verifiable Credential Data Model v1.1 en v2.0",
+    "ob3": "Uitgedrukt als Open Badges v3",
+    "jwtVc": "JWT-VC (ES256/P-256)",
+    "sdJwt": "SD-JWT VC met selectieve openbaarmaking"
+  },
+  "formatsRequirements": "Daarnaast moeten credentials de volgende standaarden en specificaties ondersteunen voor volledige verificatie:",
+  "requirementsList": {
+    "registry": "De uitgever moet bestaan in een ondersteund register (EBSI, BLUE of DCC Known Issuers).",
+    "did": "De gedecentraliseerde identificatoren van de uitgever en het subject moeten did:key, did:web, did:jwk, did:ebsi of did:blue zijn",
+    "crypto": "De juiste cryptografische ondertekeningmethode moet worden gebruikt"
+  },
+  "publicLinkTitle": "Wat is een Openbare link?",
+  "publicLink": "Gebruikers van de BLUE Learner Credential Wallet mobiele app kunnen Openbare links aanmaken als ze een credential uit hun wallet willen delen met iedereen die de link heeft.",
+  "contactTitle": "Met wie kan ik contact opnemen bij meer vragen?",
+  "contact1": "Voor vragen over BLUE VerifierPlus kunt u mailen naar <emailLink>blue@rediris.es</emailLink>.",
+  "contact2": "Meer informatie over BLUE vindt u op <blueWikiLink>wiki.rediris.es/spaces/BLUE</blueWikiLink>."
+}

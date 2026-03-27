@@ -1,0 +1,28 @@
+{
+  "pageTitle": "BLUE VerifierPlus ohiko galderak",
+  "title": "BLUE VerifierPlus ohiko galderak",
+  "whyTrustTitle": "Zergatik fidatu gutaz?",
+  "whyTrust1": "BLUE VerifierPlus <dccLink>Digital Credentials Consortium</dccLink>-ek garatutako kode irekiko softwarean oinarritzen da, kredentzial akademiko digitaletarako azpiegitura ireki bat diseinatzen duten nazioarteko unibertsitate aitzindarien sare batean.",
+  "whyTrust2": "Instantzia hau <blueLink>BLUE</blueLink>-rako eboluzionatu da, <redirisLink>RedIRIS</redirisLink>-ek (Red.es) <crueLink>CRUE Universidades Españolas</crueLink>-ekin lankidetzan kudeatzen duen konfiantza-sare akademikoa.",
+  "whyTrust3": "Webgune honek kredentzial digital bateragarrietarako estandar tekniko irekiak onartzen dituzten <githubLink>kode irekiko liburutegiak</githubLink> inplementatzen ditu.",
+  "whyTrust4": "Mesedez, jarri harremanetan <emailLink>blue@rediris.es</emailLink> helbidean edozein galderarekin.",
+  "formatsTitle": "Zein formatu onartzen dira kredentzial akademiko digitaletarako?",
+  "formatsIntro": "BLUE VerifierPlus kredentzial akademiko digitalekin bateragarria da:",
+  "formatsList": {
+    "w3c": "W3C Verifiable Credential Data Model v1.1 eta v2.0 erabiliz",
+    "ob3": "Open Badges v3 gisa adieraziak",
+    "jwtVc": "JWT-VC (ES256/P-256)",
+    "sdJwt": "SD-JWT VC dibulgazio selektiboarekin"
+  },
+  "formatsRequirements": "Gainera, kredentzialek estandar eta zehaztapen hauek bete behar dituzte egiaztapen osorako:",
+  "requirementsList": {
+    "registry": "Jaulkitzaileak bateragarria den erregistro batean egon behar du (EBSI, BLUE edo DCC Known Issuers).",
+    "did": "Jaulkitzailearen eta subjektuaren identifikatzaile deszentralizatuak did:key, did:web, did:jwk, did:ebsi edo did:blue izan behar dira",
+    "crypto": "Sinadura kriptografikoko metodo egokia erabili behar da"
+  },
+  "publicLinkTitle": "Zer da Esteka publiko bat?",
+  "publicLink": "BLUE Learner Credential Wallet mugikorrerako aplikazioaren erabiltzaileek Esteka publikoak sortu ditzakete beren zorroko kredentzial bat esteka duen edonorekin partekatu nahi badute.",
+  "contactTitle": "Norekin harremanetan jarri galdera gehiago baditut?",
+  "contact1": "BLUE VerifierPlus-i buruzko galderetarako, bidali mezu elektroniko bat <emailLink>blue@rediris.es</emailLink> helbidera.",
+  "contact2": "BLUE-ri buruz gehiago jakiteko, bisitatu <blueWikiLink>wiki.rediris.es/spaces/BLUE</blueWikiLink>."
+}

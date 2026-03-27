@@ -1,0 +1,41 @@
+{
+  "title": "Verifizierung und Validierung des Nachweises",
+  "thisCredential": "Dieser Nachweis:",
+  "lastChecked": "Zuletzt geprüft: {{date}}",
+  "runVerification": "Verifizierung starten",
+  "verifying": "Wird verifiziert",
+  "pleaseWait": "Bitte warten Sie, während Ihr Nachweis verifiziert wird.",
+  "successfulVerification": "Dieser Nachweis wurde erfolgreich verifiziert",
+  "unsuccessfulVerification": "Dieser Nachweis konnte nicht erfolgreich verifiziert werden.",
+  "warningVerification": "Es gibt eine Warnung zu diesem Nachweis.",
+  "issuerDetails": "Ausstellerdetails",
+  "unknownRegistry": "Unbekanntes Register",
+  "moreInfo": "Weitere Informationen",
+  "indicator": {
+    "verifying": "Wird verifiziert...",
+    "notVerified": "Nicht verifiziert",
+    "warning": "Warnung",
+    "verified": "Verifiziert"
+  },
+  "log": {
+    "hasExpired": "ist abgelaufen",
+    "noExpirationDate": "kein Ablaufdatum festgelegt",
+    "hasNotExpired": "ist nicht abgelaufen",
+    "generalError": "Bei der Verifizierung dieses Nachweises ist ein Fehler aufgetreten.",
+    "unknownError": "Bei der Verifizierung dieses Nachweises ist ein unbekannter Fehler aufgetreten.",
+    "wellFormed": "liegt in einem unterstützten Nachweisformat vor",
+    "malFormed": "ist kein erkannter Nachweistyp",
+    "validSignature": "hat eine gültige Signatur",
+    "invalidSignature": "hat eine ungültige Signatur",
+    "knownIssuer": "wurde von einem bekannten Aussteller ausgestellt",
+    "unknownIssuer": "ist nicht in einem bekannten Ausstellerregister",
+    "notRevoked": "wurde nicht widerrufen",
+    "revoked": "wurde widerrufen",
+    "uncheckedRevocation": "Widerrufsstatus konnte nicht geprüft werden",
+    "notSuspended": "wurde nicht suspendiert",
+    "suspended": "wurde suspendiert"
+  },
+  "signingError": "Dieser Nachweis kann nicht verifiziert werden. Bitte beachten Sie, dass der JSON-Code empfindlich auf Änderungen im Text reagiert, einschließlich Leerzeichen und Zeichen. Bitte stellen Sie sicher, dass Sie den korrekten Code eingegeben haben.",
+  "signingErrorDetail": "Etwas hat sich im Nachweis geändert, sodass die elektronische Signatur nicht mehr mit dem Inhalt übereinstimmt. Dies kann etwas so Einfaches sein wie das versehentliche Hinzufügen eines Leerzeichens.",
+  "unknownErrorDetail": "Bitte versuchen Sie es erneut oder kontaktieren Sie uns."
+}

@@ -1,0 +1,28 @@
+{
+  "pageTitle": "BLUE VerifierPlus FAQ",
+  "title": "BLUE VerifierPlus Domande frequenti",
+  "whyTrustTitle": "Perché fidarsi di noi?",
+  "whyTrust1": "BLUE VerifierPlus è basato su software open source sviluppato dal <dccLink>Digital Credentials Consortium</dccLink>, una rete di importanti università internazionali che progettano un'infrastruttura aperta per le credenziali accademiche digitali.",
+  "whyTrust2": "Questa istanza è stata sviluppata per <blueLink>BLUE</blueLink>, la rete di fiducia accademica gestita da <redirisLink>RedIRIS</redirisLink> (Red.es) in collaborazione con <crueLink>CRUE Universidades Españolas</crueLink>.",
+  "whyTrust3": "Questo sito implementa <githubLink>librerie open source</githubLink> che supportano standard tecnici aperti per le credenziali digitali supportate.",
+  "whyTrust4": "Per qualsiasi domanda, contattare <emailLink>blue@rediris.es</emailLink>.",
+  "formatsTitle": "Quali formati di credenziali accademiche digitali sono supportati?",
+  "formatsIntro": "BLUE VerifierPlus supporta credenziali accademiche digitali:",
+  "formatsList": {
+    "w3c": "Secondo il W3C Verifiable Credential Data Model v1.1 e v2.0",
+    "ob3": "Espresse come Open Badges v3",
+    "jwtVc": "JWT-VC (ES256/P-256)",
+    "sdJwt": "SD-JWT VC con divulgazione selettiva"
+  },
+  "formatsRequirements": "Inoltre, le credenziali devono supportare i seguenti standard e specifiche per una verifica completa:",
+  "requirementsList": {
+    "registry": "L'emittente deve essere presente in un registro supportato (EBSI, BLUE o DCC Known Issuers).",
+    "did": "Gli identificatori decentralizzati dell'emittente e del soggetto devono essere did:key, did:web, did:jwk, did:ebsi o did:blue",
+    "crypto": "Deve essere utilizzato il metodo di firma crittografica appropriato"
+  },
+  "publicLinkTitle": "Cos'è un Link pubblico?",
+  "publicLink": "Gli utenti dell'app mobile BLUE Learner Credential Wallet possono creare Link pubblici se desiderano condividere una credenziale dal proprio portafoglio con chiunque abbia il link.",
+  "contactTitle": "Chi posso contattare per ulteriori domande?",
+  "contact1": "Per domande su BLUE VerifierPlus, scrivere a <emailLink>blue@rediris.es</emailLink>.",
+  "contact2": "Per saperne di più su BLUE, visitare <blueWikiLink>wiki.rediris.es/spaces/BLUE</blueWikiLink>."
+}

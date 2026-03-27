@@ -1,0 +1,10 @@
+{
+  "notFound": "404 Nachweis nicht gefunden",
+  "checkLink": "Bitte überprüfen Sie, ob Sie den richtigen Link besuchen.",
+  "checkHolder": "Sie können auch den Inhaber des Nachweises kontaktieren, um zu erfahren, ob der Nachweis nicht mehr geteilt wird oder abgelaufen ist.",
+  "notFoundTitle": "404: Nachweis nicht gefunden",
+  "confirmUrl": "Bitte bestätigen Sie, dass Sie die korrekte URL oder den korrekten öffentlichen Link eingegeben haben.",
+  "otherReasons": "Weitere mögliche Ursachen für diesen Fehler:",
+  "credentialExpired": "Der Nachweis ist abgelaufen",
+  "credentialUnshared": "Der Inhaber des Nachweises hat die URL oder den öffentlichen Link zurückgezogen"
+}

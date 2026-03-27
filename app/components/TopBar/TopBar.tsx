@@ -1,11 +1,14 @@
 'use client'
 import type { TopBarProps } from "./TopBar.d"
 import { ToggleSwitch } from "@/components/ToggleSwitch/ToggleSwitch";
+import { LanguageSelector } from "@/components/LanguageSelector/LanguageSelector";
 import Link from "next/link";
 import { useCallback, useEffect } from "react"
+import { useTranslation } from 'react-i18next'
 import styles from './TopBar.module.css'
 
 export const TopBar = ({hasLogo = false, isDark, setIsDark, setCredential}: TopBarProps) => {
+  const { t } = useTranslation('common')
 
   const enableDarkMode = useCallback(() => {
     document.body.classList.add('darkmode');
@@ -48,13 +51,14 @@ export const TopBar = ({hasLogo = false, isDark, setIsDark, setCredential}: TopB
           <div className={styles.logo} onClick={() => clearCredential()}>
             <Link href='/'>
               <div>
-                <p>BLUE VerifierPlus</p>
+                <p>{t('appName')}</p>
               </div>
               {/* <p>VerifierPlus</p> */}
             </Link>
           </div>
          : null
         }
+        <LanguageSelector />
         <ToggleSwitch
           isOn={isDark}
           handleToggle={handleToggle}

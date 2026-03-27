@@ -1,0 +1,10 @@
+{
+  "notFound": "404 kredentzial ez da aurkitu",
+  "checkLink": "Mesedez, egiaztatu esteka zuzena bisitatzen ari zarela.",
+  "checkHolder": "Kredentzialaren titularrarekin ere egiaztatu dezakezu ea kredentzialaren partekatzea desgaitu duen edo iraungita dagoen.",
+  "notFoundTitle": "404: Kredentzial ez da aurkitu",
+  "confirmUrl": "Mesedez, baieztatu URL edo esteka publiko zuzena sartu duzula.",
+  "otherReasons": "Errore honen beste arrazoi batzuk hauek izan daitezke:",
+  "credentialExpired": "Kredentzialak iraungita daude",
+  "credentialUnshared": "Kredentzialaren titularrak URLaren edo esteka publikoaren partekatzea desgaitu du"
+}

@@ -1,0 +1,41 @@
+{
+  "title": "Verificación e validación de credenciais",
+  "thisCredential": "Esta credencial:",
+  "lastChecked": "Última comprobación: {{date}}",
+  "runVerification": "Executar verificación",
+  "verifying": "Verificando",
+  "pleaseWait": "Por favor, agarde mentres verificamos a súa credencial.",
+  "successfulVerification": "Esta credencial foi verificada correctamente",
+  "unsuccessfulVerification": "Esta credencial non foi verificada correctamente.",
+  "warningVerification": "Hai un aviso sobre esta credencial.",
+  "issuerDetails": "Detalles do emisor",
+  "unknownRegistry": "Rexistro descoñecido",
+  "moreInfo": "Máis información",
+  "indicator": {
+    "verifying": "Verificando...",
+    "notVerified": "Non verificada",
+    "warning": "Aviso",
+    "verified": "Verificada"
+  },
+  "log": {
+    "hasExpired": "expirou",
+    "noExpirationDate": "non ten data de expiración establecida",
+    "hasNotExpired": "non expirou",
+    "generalError": "Produciuse un erro ao verificar esta credencial.",
+    "unknownError": "Produciuse un erro descoñecido ao verificar esta credencial.",
+    "wellFormed": "está nun formato de credencial compatible",
+    "malFormed": "non é un tipo de credencial recoñecido",
+    "validSignature": "ten unha sinatura válida",
+    "invalidSignature": "ten unha sinatura non válida",
+    "knownIssuer": "foi emitida por un emisor coñecido",
+    "unknownIssuer": "non está nun rexistro de emisores coñecidos",
+    "notRevoked": "non foi revogada",
+    "revoked": "foi revogada",
+    "uncheckedRevocation": "Non se puido comprobar o estado de revogación",
+    "notSuspended": "non foi suspendida",
+    "suspended": "foi suspendida"
+  },
+  "signingError": "Esta credencial non se pode verificar. Teña en conta que o código JSON é sensible aos cambios no texto do código, incluídos espazos e caracteres. Por favor, asegúrese de que introduciu o código correcto.",
+  "signingErrorDetail": "Algo cambiou na credencial de xeito que a sinatura electrónica xa non coincide co contido. Isto podería ser algo tan sinxelo como engadir un espazo inadvertidamente.",
+  "unknownErrorDetail": "Por favor, ténteo de novo ou avísenos."
+}

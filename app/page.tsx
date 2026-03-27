@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import { Accordion } from '@/components/Accordion/Accordion'
 import { Button } from '@/components/Button/Button'
 import { useEffect, useState } from 'react'
+import { useTranslation, Trans } from 'react-i18next'
 import { ScanModal } from '@/components/ScanModal/ScanModal'
 import { CredentialCard } from '@/components/CredentialCard/CredentialCard'
 import { Container } from '@/components/Container/Container'
@@ -31,6 +32,8 @@ const randomPageId = uuidv4();
 
 
 export default function Home() {
+  const { t } = useTranslation('home');
+  const { t: tc } = useTranslation('common');
   const [textArea, setTextArea] = useState('');
   const [isDark, setIsDark] = useState(false);
   const [file, setFile] = useState<File | null>(null);
@@ -45,8 +48,7 @@ export default function Home() {
   const { version } = packageJson;
 
   useEffect(() => {
-    document.documentElement.lang = "en";
-    document.title = "BLUE VerifierPlus Home page";
+    document.title = t('pageTitle');
 
     polyfill.loadOnce()
       .then((_: any) => { console.log('CHAPI polyfill loaded.') })
@@ -461,17 +463,20 @@ export default function Home() {
       <div className={styles.contentContainer}>
         <div>
           <h1 className={styles.title}>
-            BLUE VerifierPlus
+            {t('title')}
           </h1>
-          <p className={styles.version}>Version {version}</p>
+          <p className={styles.version}>{t('version', { version })}</p>
           <p className={styles.descriptionBlock}>
-            BLUE VerifierPlus allows users to verify any <Link href='faq#supported'>supported</Link> digital academic
-            credential.
-            This application was developed by
-            the <a href='https://digitalcredentials.mit.edu/'>Digital Credentials Consortium</a> and
-            has been evolved for <a href='https://wiki.rediris.es/spaces/BLUE'>BLUE</a>,
-            the academic trust network operated by <a href='https://www.rediris.es/'>RedIRIS</a> (Red.es)
-            in collaboration with <a href='https://www.crue.org/'>CRUE Universidades Españolas</a>. <Link href='faq#trust'>Why trust us?</Link>
+            <Trans i18nKey='description' t={t}
+              components={{
+                supportedLink: <Link href='faq#supported' />,
+                dccLink: <a href='https://digitalcredentials.mit.edu/' />,
+                blueLink: <a href='https://wiki.rediris.es/spaces/BLUE' />,
+                redirisLink: <a href='https://www.rediris.es/' />,
+                crueLink: <a href='https://www.crue.org/' />,
+                whyTrust: <Link href='faq#trust' />
+              }}
+            />
           </p>
         </div>
 
@@ -481,7 +486,7 @@ export default function Home() {
               warning
             </span>
             <p className={styles.error}>
-              Invalid QR code
+              {t('errors.invalidQrCode')}
             </p>
           </div>
         )}
@@ -492,11 +497,11 @@ export default function Home() {
             iconOpen={spinner}
             onOpen={startPolling}
             onClose={() => stopPolling(undefined)}
-            title="Request credentials from BLUE Wallet" >
+            title={t('requestFromBlueWallet')} >
             {/*             <p>
               <a className={styles.lcwLink} target={'_blank'} rel={'noreferrer'} href={lcwRequestUrl}><h3>Mobile Link</h3></a>
             </p> */}
-            <div><h5 className={styles.lcwLink}>Scan QR code with phone camera to open:</h5></div>
+            <div><h5 className={styles.lcwLink}>{t('scanQrWithPhone')}</h5></div>
             <div className={styles.qrCode}>
               <QRCodeSVG value={lcwRequestUrl} data-testid="lcw-qr-request" data-testvalue={lcwRequestUrl}/>
             </div>
@@ -513,9 +518,9 @@ export default function Home() {
               id='textarea'
               data-testid="vc-text-area"
             />
-            <label id='textarea-label' htmlFor='textarea'>Paste JSON, JWT, SD-JWT, or URL</label>
+            <label id='textarea-label' htmlFor='textarea'>{t('textareaLabel')}</label>
           </div>
-          <Button data-testid="verify-btn" className={styles.verifyTextArea} text='Verify' onClick={verifyTextArea}/>
+          <Button data-testid="verify-btn" className={styles.verifyTextArea} text={tc('buttons.verify')} onClick={verifyTextArea}/>
         </div>
 
         {textAreaError && (
@@ -524,7 +529,7 @@ export default function Home() {
               warning
             </span>
             <p className={styles.error}>
-              The input is not a valid Verifiable Credential (JSON, JWT, or SD-JWT)
+              {t('errors.invalidInput')}
             </p>
           </div>
         )}
@@ -535,10 +540,9 @@ export default function Home() {
           onDragOver={(e) => e.preventDefault()}
         >
           <label htmlFor="file-upload" className={styles.dndUploadText}>
-            Drag and drop a file here or {' '}
-            <span className={styles.browseLink}>
-              browse
-            </span>
+            <Trans i18nKey='dragAndDrop' t={t}
+              components={{ browseLink: <span className={styles.browseLink} /> }}
+            />
           </label>
 
           <input
@@ -549,14 +553,14 @@ export default function Home() {
             accept=".json,.png,.jwt"
           />
 
-          <span className={styles.supportText}>Supports JSON, JWT, SD-JWT</span>
+          <span className={styles.supportText}>{t('supportedFormats')}</span>
         </div>
 
         <div style={{ marginTop: '1em' }}>
           <Button
             icon={<span className="material-icons">qr_code_scanner</span>}
             className={styles.scan}
-            text='Scan QR Code'
+            text={t('scanQrCode')}
             onClick={ScanButtonOnClick}
           />
         </div>
@@ -567,7 +571,7 @@ export default function Home() {
               warning
             </span>
             <p className={styles.error}>
-              Json cannot be parsed
+              {t('errors.jsonCannotBeParsed')}
             </p>
           </div>
         )}
@@ -585,7 +589,7 @@ export default function Home() {
           <Button
             icon={<span className="material-icons">wallet</span>}
             className={styles.scan}
-            text='Request from web wallet via CHAPI'
+            text={t('requestFromWallet')}
             onClick={requestVcOnClick}
           />
         </div>

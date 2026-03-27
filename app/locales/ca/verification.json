@@ -1,0 +1,41 @@
+{
+  "title": "Verificació i validació de credencials",
+  "thisCredential": "Aquesta credencial:",
+  "lastChecked": "Darrera comprovació: {{date}}",
+  "runVerification": "Executar verificació",
+  "verifying": "Verificant",
+  "pleaseWait": "Si us plau, espereu mentre verifiquem la vostra credencial.",
+  "successfulVerification": "Aquesta credencial s'ha verificat correctament",
+  "unsuccessfulVerification": "Aquesta credencial no s'ha verificat correctament.",
+  "warningVerification": "Hi ha un avís sobre aquesta credencial.",
+  "issuerDetails": "Detalls de l'emissor",
+  "unknownRegistry": "Registre desconegut",
+  "moreInfo": "Més informació",
+  "indicator": {
+    "verifying": "Verificant...",
+    "notVerified": "No verificada",
+    "warning": "Avís",
+    "verified": "Verificada"
+  },
+  "log": {
+    "hasExpired": "ha expirat",
+    "noExpirationDate": "no té data d'expiració establerta",
+    "hasNotExpired": "no ha expirat",
+    "generalError": "S'ha produït un error en verificar aquesta credencial.",
+    "unknownError": "S'ha produït un error desconegut en verificar aquesta credencial.",
+    "wellFormed": "està en un format de credencial compatible",
+    "malFormed": "no és un tipus de credencial reconegut",
+    "validSignature": "té una signatura vàlida",
+    "invalidSignature": "té una signatura no vàlida",
+    "knownIssuer": "ha estat emesa per un emissor conegut",
+    "unknownIssuer": "no es troba en cap registre d'emissors coneguts",
+    "notRevoked": "no ha estat revocada",
+    "revoked": "ha estat revocada",
+    "uncheckedRevocation": "No s'ha pogut comprovar l'estat de revocació",
+    "notSuspended": "no ha estat suspesa",
+    "suspended": "ha estat suspesa"
+  },
+  "signingError": "Aquesta credencial no es pot verificar. Tingueu en compte que el codi JSON és sensible als canvis en el text del codi, inclosos espais i caràcters. Si us plau, assegureu-vos que heu introduït el codi correcte.",
+  "signingErrorDetail": "Alguna cosa ha canviat a la credencial de manera que la signatura electrònica ja no coincideix amb el contingut. Això podria ser quelcom tan senzill com afegir un espai inadvertidament.",
+  "unknownErrorDetail": "Si us plau, torneu a provar-ho o feu-nos-ho saber."
+}

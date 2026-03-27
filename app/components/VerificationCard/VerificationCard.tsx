@@ -1,5 +1,6 @@
 import { ResultLog } from '@/components/ResultLog/ResultLog';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { VerificationControls } from '@/components/VerificationControls/VerificationControls';
 import { useVerificationContext } from '@/lib/verificationContext';
 import { VerifyResponse } from '@/types/credential';
@@ -14,17 +15,16 @@ export const SUCCESSFUL_VERIFICATION_MSG = 'This credential was verified success
 
 export const VerificationCard = () => {
   const { loading, verificationResult, verifyCredential } = useVerificationContext();
+  const { t } = useTranslation('verification');
 
   const resultMessage = () => {
     const result = (verificationResult as VerifyResponse)?.results?.[0];
     const log = result?.log ?? [];
-    // Build a lookup of log validity
     const details = log.reduce<Record<string, boolean>>((acc, entry) => {
       acc[entry.id] = entry.valid;
       return acc;
     }, {});
 
-    // Set missing expected keys to false
     ['valid_signature', 'expiration', 'registered_issuer'].forEach(key => {
       if (!(key in details)) {
         details[key] = false;
@@ -42,17 +42,17 @@ export const VerificationCard = () => {
     if (hasFailure) {
       return {
         type: 'error',
-        text: UNSUCCESSFUL_VERIFICATION_MSG,
+        text: t('unsuccessfulVerification'),
       };
     } else if (hasWarning) {
       return {
         type: 'warning',
-        text: VERIFICATION_WARNING_MSG,
+        text: t('warningVerification'),
       };
     } else {
       return {
         type: 'success',
-        text: SUCCESSFUL_VERIFICATION_MSG,
+        text: t('successfulVerification'),
       };
     }
   };
@@ -65,7 +65,7 @@ export const VerificationCard = () => {
         {loading ? (
           <div className={styles.loadingIndicator}>
             <span className="material-icons">sync</span>
-            Verifying
+            {t('verifying')}
           </div>
         ) : (
           <VerificationControls
@@ -78,7 +78,7 @@ export const VerificationCard = () => {
       <div className={styles.resultLog}>
         {loading ? (
           <div className={styles.loadingMessage}>
-            Please wait while we verify your credential.
+            {t('pleaseWait')}
           </div>
         ) : (
           <>
@@ -110,12 +110,12 @@ export const VerificationCard = () => {
                   return (
                     <>
                       <p className={styles.registryName}>
-                        <strong>Issuer Details</strong>
+                        <strong>{t('issuerDetails')}</strong>
                       </p>
                       {matchingIssuers.map((match: any, index: number) => {
                         const registryName =
                           match?.registry?.federation_entity?.organization_name ??
-                          'Unknown Registry';
+                          t('unknownRegistry');
 
                         const issuerOrg =
                           match?.issuer?.federation_entity?.organization_name ??

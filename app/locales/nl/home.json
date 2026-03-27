@@ -1,0 +1,19 @@
+{
+  "pageTitle": "BLUE VerifierPlus Startpagina",
+  "title": "BLUE VerifierPlus",
+  "version": "Versie {{version}}",
+  "description": "BLUE VerifierPlus stelt gebruikers in staat om elke <supportedLink>ondersteunde</supportedLink> digitale academische credential te verifiëren. Deze applicatie is ontwikkeld door het <dccLink>Digital Credentials Consortium</dccLink>, een netwerk van toonaangevende internationale universiteiten die een open infrastructuur ontwerpen voor digitale academische credentials, en is doorontwikkeld voor <blueLink>BLUE</blueLink>, het academische vertrouwensnetwerk beheerd door <redirisLink>RedIRIS</redirisLink> (Red.es) in samenwerking met <crueLink>CRUE Universidades Españolas</crueLink>. <whyTrust>Waarom ons vertrouwen?</whyTrust>",
+  "textareaLabel": "Plak JSON, JWT, SD-JWT of URL",
+  "scanQrCode": "QR-code scannen",
+  "requestFromWallet": "Opvragen uit webwallet via CHAPI",
+  "requestFromBlueWallet": "Credentials opvragen uit BLUE Wallet",
+  "scanQrWithPhone": "Scan de QR-code met de camera van je telefoon om te openen:",
+  "dragAndDrop": "Sleep een bestand hierheen of <browseLink>blader</browseLink>",
+  "supportedFormats": "Ondersteunt JSON, JWT, SD-JWT",
+  "multipleCredentials": "De presentatie bevatte meerdere credentials, maar alleen de eerste wordt weergegeven",
+  "errors": {
+    "invalidQrCode": "Ongeldige QR-code",
+    "invalidInput": "De invoer is geen geldige verifieerbare credential (JSON, JWT of SD-JWT)",
+    "jsonCannotBeParsed": "JSON kan niet worden verwerkt"
+  }
+}

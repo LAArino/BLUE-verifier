@@ -1,0 +1,16 @@
+{
+  "appName": "BLUE VerifierPlus",
+  "darkMode": "Modo escuro",
+  "buttons": {
+    "close": "Pechar",
+    "cancel": "Cancelar",
+    "tryAgain": "Tentar de novo",
+    "verify": "Verificar"
+  },
+  "footer": {
+    "terms": "Termos e condicións de uso",
+    "privacy": "Política de privacidade",
+    "blue": "BLUE",
+    "viewOnGit": "Ver en Git"
+  }
+}

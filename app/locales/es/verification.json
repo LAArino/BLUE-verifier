@@ -1,0 +1,41 @@
+{
+  "title": "Verificacion y validacion de credenciales",
+  "thisCredential": "Esta credencial:",
+  "lastChecked": "Ultima comprobacion: {{date}}",
+  "runVerification": "Ejecutar verificacion",
+  "verifying": "Verificando",
+  "pleaseWait": "Por favor, espera mientras verificamos tu credencial.",
+  "successfulVerification": "Esta credencial se verifico correctamente",
+  "unsuccessfulVerification": "Esta credencial no se verifico correctamente.",
+  "warningVerification": "Hay una advertencia sobre esta credencial.",
+  "issuerDetails": "Detalles del emisor",
+  "unknownRegistry": "Registro desconocido",
+  "moreInfo": "Mas informacion",
+  "indicator": {
+    "verifying": "Verificando...",
+    "notVerified": "No verificada",
+    "warning": "Advertencia",
+    "verified": "Verificada"
+  },
+  "log": {
+    "hasExpired": "ha expirado",
+    "noExpirationDate": "no tiene fecha de expiracion establecida",
+    "hasNotExpired": "no ha expirado",
+    "generalError": "Se produjo un error al verificar esta credencial.",
+    "unknownError": "Se produjo un error desconocido al verificar esta credencial.",
+    "wellFormed": "tiene un formato de credencial compatible",
+    "malFormed": "no es un tipo de credencial reconocido",
+    "validSignature": "tiene una firma valida",
+    "invalidSignature": "tiene una firma no valida",
+    "knownIssuer": "ha sido emitida por un emisor conocido",
+    "unknownIssuer": "no esta en un registro de emisores conocidos",
+    "notRevoked": "no ha sido revocada",
+    "revoked": "ha sido revocada",
+    "uncheckedRevocation": "No se pudo comprobar el estado de revocacion",
+    "notSuspended": "no ha sido suspendida",
+    "suspended": "ha sido suspendida"
+  },
+  "signingError": "Esta credencial no se puede verificar. Ten en cuenta que el codigo JSON es sensible a cambios en el texto, incluidos espacios y caracteres. Asegurate de haber introducido el codigo correcto.",
+  "signingErrorDetail": "Algo ha cambiado en la credencial de modo que la firma electronica ya no coincide con el contenido. Esto podria ser algo tan simple como haber añadido un espacio inadvertidamente.",
+  "unknownErrorDetail": "Por favor, intentalo de nuevo o contacta con nosotros."
+}

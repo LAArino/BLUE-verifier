@@ -1,0 +1,41 @@
+{
+  "title": "Verificatie en validatie van de credential",
+  "thisCredential": "Deze credential:",
+  "lastChecked": "Laatst gecontroleerd: {{date}}",
+  "runVerification": "Verificatie starten",
+  "verifying": "Wordt geverifieerd",
+  "pleaseWait": "Even geduld terwijl we uw credential verifiëren.",
+  "successfulVerification": "Deze credential is succesvol geverifieerd",
+  "unsuccessfulVerification": "Deze credential kon niet succesvol worden geverifieerd.",
+  "warningVerification": "Er is een waarschuwing over deze credential.",
+  "issuerDetails": "Uitgeversgegevens",
+  "unknownRegistry": "Onbekend register",
+  "moreInfo": "Meer informatie",
+  "indicator": {
+    "verifying": "Wordt geverifieerd...",
+    "notVerified": "Niet geverifieerd",
+    "warning": "Waarschuwing",
+    "verified": "Geverifieerd"
+  },
+  "log": {
+    "hasExpired": "is verlopen",
+    "noExpirationDate": "geen vervaldatum ingesteld",
+    "hasNotExpired": "is niet verlopen",
+    "generalError": "Er is een fout opgetreden bij het verifiëren van deze credential.",
+    "unknownError": "Er is een onbekende fout opgetreden bij het verifiëren van deze credential.",
+    "wellFormed": "is in een ondersteund credentialformaat",
+    "malFormed": "is geen herkend credentialtype",
+    "validSignature": "heeft een geldige handtekening",
+    "invalidSignature": "heeft een ongeldige handtekening",
+    "knownIssuer": "is uitgegeven door een bekende uitgever",
+    "unknownIssuer": "staat niet in een bekend uitgeversregister",
+    "notRevoked": "is niet ingetrokken",
+    "revoked": "is ingetrokken",
+    "uncheckedRevocation": "Intrekkingsstatus kon niet worden gecontroleerd",
+    "notSuspended": "is niet opgeschort",
+    "suspended": "is opgeschort"
+  },
+  "signingError": "Deze credential kan niet worden geverifieerd. Let op: de JSON-code is gevoelig voor wijzigingen in de tekst, inclusief spaties en tekens. Controleer of u de juiste code heeft ingevoerd.",
+  "signingErrorDetail": "Er is iets gewijzigd in de credential waardoor de elektronische handtekening niet meer overeenkomt met de inhoud. Dit kan iets eenvoudigs zijn als het per ongeluk toevoegen van een spatie.",
+  "unknownErrorDetail": "Probeer het opnieuw of neem contact met ons op."
+}

@@ -2,12 +2,14 @@ import { Button } from '@/components/Button/Button';
 import type { ScanModalProps } from './ScanModal.d';
 import styles from './ScanModal.module.css';
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from 'react-i18next';
 //import { QrReader } from 'react-qr-reader';
 import QrScanner from 'qr-scanner';
 //import { Result } from '@zxing/library';
 
 export const ScanModal = ({ isOpen, setIsOpen, onScan, setErrorMessage }: ScanModalProps) => {
-
+  const { t } = useTranslation('scan');
+  const { t: tc } = useTranslation('common');
   let scanner: any;
   const videoEl = useRef<HTMLVideoElement>(null);
   const [qrOn, setQrOn] = useState<boolean>(true);
@@ -61,9 +63,7 @@ export const ScanModal = ({ isOpen, setIsOpen, onScan, setErrorMessage }: ScanMo
   // If "camera" is not allowed in browser permissions, show an alert.
   useEffect(() => {
     if (!qrOn)
-      alert(
-        "Camera is blocked or not accessible. Please allow camera in your browser permissions and Reload."
-      );
+      alert(t('cameraBlocked'));
   }, [qrOn]);
 
 
@@ -95,7 +95,7 @@ export const ScanModal = ({ isOpen, setIsOpen, onScan, setErrorMessage }: ScanMo
             <div className={styles.overlay} onClick={closeModal} >
               <div className={styles.container}>
                 <div className={styles.topRow}>
-                  <span className={styles.title}>Scan a QR Code</span>
+                  <span className={styles.title}>{t('title')}</span>
                   <button onClick={closeModal} className={styles.closeModalButton}>
                     <span className="material-icons-outlined">close</span>
                   </button>
@@ -113,7 +113,7 @@ export const ScanModal = ({ isOpen, setIsOpen, onScan, setErrorMessage }: ScanMo
                 <div className={styles.bottomRow}>
                   <Button
                     className={styles.closeButton}
-                    text='Close'
+                    text={tc('buttons.close')}
                     onClick={closeModal}
                   />
                 </div>

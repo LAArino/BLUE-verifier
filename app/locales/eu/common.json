@@ -1,0 +1,16 @@
+{
+  "appName": "BLUE VerifierPlus",
+  "darkMode": "Modu iluna",
+  "buttons": {
+    "close": "Itxi",
+    "cancel": "Utzi",
+    "tryAgain": "Saiatu berriro",
+    "verify": "Egiaztatu"
+  },
+  "footer": {
+    "terms": "Erabilera-baldintzak",
+    "privacy": "Pribatutasun-politika",
+    "blue": "BLUE",
+    "viewOnGit": "Ikusi Git-en"
+  }
+}

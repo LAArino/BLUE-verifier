@@ -1,0 +1,19 @@
+{
+  "pageTitle": "Pàgina d'inici de BLUE VerifierPlus",
+  "title": "BLUE VerifierPlus",
+  "version": "Versió {{version}}",
+  "description": "BLUE VerifierPlus permet als usuaris verificar qualsevol credencial acadèmica digital <supportedLink>compatible</supportedLink>. Aquesta aplicació va ser desenvolupada pel <dccLink>Digital Credentials Consortium</dccLink>, una xarxa d'universitats internacionals líders que dissenyen una infraestructura oberta per a credencials acadèmiques digitals, i ha estat evolucionada per a <blueLink>BLUE</blueLink>, la xarxa de confiança acadèmica operada per <redirisLink>RedIRIS</redirisLink> (Red.es) en col·laboració amb <crueLink>CRUE Universidades Españolas</crueLink>. <whyTrust>Per què confiar en nosaltres?</whyTrust>",
+  "textareaLabel": "Enganxeu JSON, JWT, SD-JWT o URL",
+  "scanQrCode": "Escanejar codi QR",
+  "requestFromWallet": "Sol·licitar des de la cartera web via CHAPI",
+  "requestFromBlueWallet": "Sol·licitar credencials des de BLUE Wallet",
+  "scanQrWithPhone": "Escanegeu el codi QR amb la càmera del telèfon per obrir:",
+  "dragAndDrop": "Arrossegueu i deixeu anar un fitxer aquí o <browseLink>navegueu</browseLink>",
+  "supportedFormats": "Compatible amb JSON, JWT, SD-JWT",
+  "multipleCredentials": "La presentació tenia múltiples credencials però només es mostra la primera",
+  "errors": {
+    "invalidQrCode": "Codi QR no vàlid",
+    "invalidInput": "L'entrada no és una credencial verificable vàlida (JSON, JWT o SD-JWT)",
+    "jsonCannotBeParsed": "No es pot analitzar el JSON"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "pageTitle": "Preguntes freqüents de BLUE VerifierPlus",
+  "title": "Preguntes freqüents de BLUE VerifierPlus",
+  "whyTrustTitle": "Per què confiar en nosaltres?",
+  "whyTrust1": "BLUE VerifierPlus es basa en programari de codi obert desenvolupat pel <dccLink>Digital Credentials Consortium</dccLink>, una xarxa d'universitats internacionals líders que dissenyen una infraestructura oberta per a credencials acadèmiques digitals.",
+  "whyTrust2": "Aquesta instància ha estat evolucionada per a <blueLink>BLUE</blueLink>, la xarxa de confiança acadèmica operada per <redirisLink>RedIRIS</redirisLink> (Red.es) en col·laboració amb <crueLink>CRUE Universidades Españolas</crueLink>.",
+  "whyTrust3": "Aquest lloc web implementa <githubLink>biblioteques de codi obert</githubLink> que donen suport a estàndards tècnics oberts per a credencials digitals compatibles.",
+  "whyTrust4": "Si us plau, contacteu amb <emailLink>blue@rediris.es</emailLink> per a qualsevol pregunta.",
+  "formatsTitle": "Quins formats de credencials acadèmiques digitals són compatibles?",
+  "formatsIntro": "BLUE VerifierPlus és compatible amb credencials acadèmiques digitals:",
+  "formatsList": {
+    "w3c": "Utilitzant el W3C Verifiable Credential Data Model v1.1 i v2.0",
+    "ob3": "Expressades com a Open Badges v3",
+    "jwtVc": "JWT-VC (ES256/P-256)",
+    "sdJwt": "SD-JWT VC amb divulgació selectiva"
+  },
+  "formatsRequirements": "A més, les credencials han de complir els següents estàndards i especificacions per a una verificació completa:",
+  "requirementsList": {
+    "registry": "L'emissor ha d'existir en un registre compatible (EBSI, BLUE o DCC Known Issuers).",
+    "did": "Els identificadors descentralitzats de l'emissor i el subjecte han de ser did:key, did:web, did:jwk, did:ebsi o did:blue",
+    "crypto": "S'ha d'utilitzar el mètode de signatura criptogràfica adequat"
+  },
+  "publicLinkTitle": "Què és un Enllaç públic?",
+  "publicLink": "Els usuaris de l'aplicació mòbil BLUE Learner Credential Wallet poden crear Enllaços públics si desitgen compartir una credencial de la seva cartera amb qualsevol persona que tingui l'enllaç.",
+  "contactTitle": "Amb qui puc contactar si tinc més preguntes?",
+  "contact1": "Per a preguntes sobre BLUE VerifierPlus, si us plau, envieu un correu electrònic a <emailLink>blue@rediris.es</emailLink>.",
+  "contact2": "Per obtenir més informació sobre BLUE, visiteu <blueWikiLink>wiki.rediris.es/spaces/BLUE</blueWikiLink>."
+}

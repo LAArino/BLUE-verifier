@@ -1,0 +1,28 @@
+{
+  "pageTitle": "BLUE VerifierPlus FAQ",
+  "title": "BLUE VerifierPlus Häufig gestellte Fragen",
+  "whyTrustTitle": "Warum uns vertrauen?",
+  "whyTrust1": "BLUE VerifierPlus basiert auf quelloffener Software, die vom <dccLink>Digital Credentials Consortium</dccLink> entwickelt wurde, einem Netzwerk führender internationaler Universitäten, das eine offene Infrastruktur für digitale akademische Nachweise gestaltet.",
+  "whyTrust2": "Diese Instanz wurde für <blueLink>BLUE</blueLink> weiterentwickelt, das akademische Vertrauensnetzwerk, betrieben von <redirisLink>RedIRIS</redirisLink> (Red.es) in Zusammenarbeit mit <crueLink>CRUE Universidades Españolas</crueLink>.",
+  "whyTrust3": "Diese Website implementiert <githubLink>quelloffene Bibliotheken</githubLink>, die offene technische Standards für unterstützte digitale Nachweise unterstützen.",
+  "whyTrust4": "Bitte kontaktieren Sie <emailLink>blue@rediris.es</emailLink> bei Fragen.",
+  "formatsTitle": "Welche Formate digitaler akademischer Nachweise werden unterstützt?",
+  "formatsIntro": "BLUE VerifierPlus unterstützt digitale akademische Nachweise:",
+  "formatsList": {
+    "w3c": "Nach dem W3C Verifiable Credential Data Model v1.1 und v2.0",
+    "ob3": "Ausgestellt als Open Badges v3",
+    "jwtVc": "JWT-VC (ES256/P-256)",
+    "sdJwt": "SD-JWT VC mit selektiver Offenlegung"
+  },
+  "formatsRequirements": "Darüber hinaus müssen Nachweise die folgenden Standards und Spezifikationen für eine vollständige Verifizierung unterstützen:",
+  "requirementsList": {
+    "registry": "Der Aussteller muss in einem unterstützten Register vorhanden sein (EBSI, BLUE oder DCC Known Issuers).",
+    "did": "Die dezentralen Identifikatoren des Ausstellers und des Inhabers müssen did:key, did:web, did:jwk, did:ebsi oder did:blue sein",
+    "crypto": "Es muss die geeignete kryptografische Signaturmethode verwendet werden"
+  },
+  "publicLinkTitle": "Was ist ein öffentlicher Link?",
+  "publicLink": "Nutzer der mobilen App BLUE Learner Credential Wallet können öffentliche Links erstellen, wenn sie einen Nachweis aus ihrer Wallet mit jedem teilen möchten, der den Link hat.",
+  "contactTitle": "An wen kann ich mich bei weiteren Fragen wenden?",
+  "contact1": "Bei Fragen zu BLUE VerifierPlus schreiben Sie bitte an <emailLink>blue@rediris.es</emailLink>.",
+  "contact2": "Weitere Informationen über BLUE finden Sie unter <blueWikiLink>wiki.rediris.es/spaces/BLUE</blueWikiLink>."
+}

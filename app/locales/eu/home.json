@@ -1,0 +1,19 @@
+{
+  "pageTitle": "BLUE VerifierPlus hasiera-orria",
+  "title": "BLUE VerifierPlus",
+  "version": "{{version}} bertsioa",
+  "description": "BLUE VerifierPlus-ek erabiltzaileei edozein kredentzial akademiko digital <supportedLink>bateragarri</supportedLink> egiaztatzeko aukera ematen die. Aplikazio hau <dccLink>Digital Credentials Consortium</dccLink>-ek garatu zuen, kredentzial akademiko digitaletarako azpiegitura ireki bat diseinatzen duten nazioarteko unibertsitate aitzindarien sare batek, eta <blueLink>BLUE</blueLink>-rako eboluzionatu da, <redirisLink>RedIRIS</redirisLink>-ek (Red.es) <crueLink>CRUE Universidades Españolas</crueLink>-ekin lankidetzan kudeatzen duen konfiantza-sare akademikoa. <whyTrust>Zergatik fidatu gutaz?</whyTrust>",
+  "textareaLabel": "Itsatsi JSON, JWT, SD-JWT edo URLa",
+  "scanQrCode": "Eskaneatu QR kodea",
+  "requestFromWallet": "Eskatu web zorrrotik CHAPI bidez",
+  "requestFromBlueWallet": "Eskatu kredentzialak BLUE Wallet-etik",
+  "scanQrWithPhone": "Eskaneatu QR kodea telefonoaren kamerarekin irekitzeko:",
+  "dragAndDrop": "Arrastatu eta jaregin fitxategi bat hemen edo <browseLink>arakatu</browseLink>",
+  "supportedFormats": "JSON, JWT, SD-JWT formatuak onartzen ditu",
+  "multipleCredentials": "Aurkezpenak kredentzial anitz zituen baina lehena bakarrik erakusten da",
+  "errors": {
+    "invalidQrCode": "QR kode baliogabea",
+    "invalidInput": "Sarrera ez da kredentzial egiaztagarri baliogarria (JSON, JWT edo SD-JWT)",
+    "jsonCannotBeParsed": "JSON-a ezin da analizatu"
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './TrustRegistryCard.module.css';
 import type { IssuerTIRDetails } from '@/types/credential';
 
@@ -7,6 +8,7 @@ type TrustRegistryCardProps = {
 };
 
 export const TrustRegistryCard: React.FC<TrustRegistryCardProps> = ({ tirDetails }) => {
+  const { t, i18n } = useTranslation('credential');
   const {
     networkName,
     environmentLabel,
@@ -21,11 +23,23 @@ export const TrustRegistryCard: React.FC<TrustRegistryCardProps> = ({ tirDetails
     ? `${networkName} (${environmentLabel})`
     : networkName;
 
+  const formatDate = (iso: string): string => {
+    try {
+      return new Date(iso).toLocaleDateString(i18n.language, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
+    } catch {
+      return iso;
+    }
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.header}>
         <span className={`material-icons ${styles.trustIcon}`}>verified</span>
-        <strong>Trusted Issuer Registry</strong>
+        <strong>{t('trustRegistry.title')}</strong>
       </div>
 
       <div className={styles.network}>
@@ -35,19 +49,19 @@ export const TrustRegistryCard: React.FC<TrustRegistryCardProps> = ({ tirDetails
       <div className={styles.details}>
         {issuerName && (
           <div className={styles.row}>
-            <span className={styles.label}>Issuer</span>
+            <span className={styles.label}>{t('trustRegistry.issuer')}</span>
             <span className={styles.value}>{issuerName}</span>
           </div>
         )}
 
         <div className={styles.row}>
-          <span className={styles.label}>DID</span>
+          <span className={styles.label}>{t('trustRegistry.did')}</span>
           <span className={`${styles.value} ${styles.did}`}>{issuerDid}</span>
         </div>
 
         {accreditingOrganization && (
           <div className={styles.row}>
-            <span className={styles.label}>Accredited by</span>
+            <span className={styles.label}>{t('trustRegistry.accreditedBy')}</span>
             <span className={styles.value}>
               {accreditingOrganization}
               {accreditingDid && (
@@ -60,7 +74,7 @@ export const TrustRegistryCard: React.FC<TrustRegistryCardProps> = ({ tirDetails
 
       {accreditations.length > 0 && (
         <div className={styles.accreditations}>
-          <span className={styles.label}>Accredited credential types</span>
+          <span className={styles.label}>{t('trustRegistry.accreditedTypes')}</span>
           <div className={styles.accreditationList}>
             {accreditations.map((acc, index) => (
               <div key={index} className={styles.accreditation}>
@@ -92,15 +106,3 @@ export const TrustRegistryCard: React.FC<TrustRegistryCardProps> = ({ tirDetails
     </div>
   );
 };
-
-function formatDate(iso: string): string {
-  try {
-    return new Date(iso).toLocaleDateString(undefined, {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  } catch {
-    return iso;
-  }
-}

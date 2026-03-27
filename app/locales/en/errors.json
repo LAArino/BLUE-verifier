@@ -1,0 +1,10 @@
+{
+  "notFound": "404 credential not found",
+  "checkLink": "Please check to make sure you're visiting the correct link.",
+  "checkHolder": "You may also want to check with the credential holder to see if they have unshared the credential or it has expired.",
+  "notFoundTitle": "404: Credential Not Found",
+  "confirmUrl": "Please confirm you have entered the correct URL or public link.",
+  "otherReasons": "Other reasons for this error could include:",
+  "credentialExpired": "The credential has expired",
+  "credentialUnshared": "The credential holder has unshared the URL or public link"
+}

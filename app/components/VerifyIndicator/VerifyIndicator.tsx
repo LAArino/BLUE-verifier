@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useVerificationContext } from "@/lib/verificationContext";
 import styles from './VerifyIndicator.module.css';
 import { TestId } from "@/lib/testIds";
@@ -9,6 +10,7 @@ export const VERIFIED_MSG = 'Verified'
 
 export const VerifyIndicator = () => {
   const { loading, verificationResult } = useVerificationContext();
+  const { t } = useTranslation('verification');
   let className: string = '';
   let icon: React.ReactElement | null = null;
   let text: string = '';
@@ -16,20 +18,17 @@ export const VerifyIndicator = () => {
   const result = verificationResult?.results?.[0];
   const log = result?.log ?? [];
 
-  // Normalize log into a lookup map
   const details = log.reduce<Record<string, boolean>>((acc, entry) => {
     acc[entry.id] = entry.valid;
     return acc;
   }, {});
 
-  // Set default false for any missing expected keys
   ['valid_signature', 'expiration', 'registered_issuer'].forEach(key => {
     if (!(key in details)) {
       details[key] = false;
     }
   });
 
-  // Define conditions
   const hasFailure = ['valid_signature', 'revocation_status'].some(
     key => details[key] === false
   );
@@ -38,21 +37,20 @@ export const VerifyIndicator = () => {
     key => details[key] === false
   );
 
-  // Determine status
   if (loading) {
     className = styles.loading;
-    text = VERIFYING_MSG;
+    text = t('indicator.verifying');
   } else if (hasFailure) {
     icon = <span className={`material-icons ${styles.indicatorIcon}`}>cancel</span>;
-    text = NOT_VERIFIED_MSG;
+    text = t('indicator.notVerified');
     className = styles.notVerified;
   } else if (hasWarning) {
     icon = <span className={`material-icons ${styles.indicatorIcon}`}>priority_high</span>;
-    text = WARNING_MSG;
+    text = t('indicator.warning');
     className = styles.warning;
   } else {
     icon = <span className={`material-icons ${styles.indicatorIcon}`}>check_circle</span>;
-    text = VERIFIED_MSG;
+    text = t('indicator.verified');
     className = styles.verified;
   }
 

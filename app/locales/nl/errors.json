@@ -1,0 +1,10 @@
+{
+  "notFound": "404 credential niet gevonden",
+  "checkLink": "Controleer of u de juiste link bezoekt.",
+  "checkHolder": "U kunt ook contact opnemen met de houder van de credential om te controleren of deze het delen heeft stopgezet of dat de credential is verlopen.",
+  "notFoundTitle": "404: Credential niet gevonden",
+  "confirmUrl": "Bevestig dat u de juiste URL of openbare link heeft ingevoerd.",
+  "otherReasons": "Andere mogelijke oorzaken voor deze fout:",
+  "credentialExpired": "De credential is verlopen",
+  "credentialUnshared": "De houder van de credential heeft de URL of openbare link ingetrokken"
+}

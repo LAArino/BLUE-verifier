@@ -1,0 +1,41 @@
+{
+  "title": "Credential Verification and Validation",
+  "thisCredential": "This credential:",
+  "lastChecked": "Last Checked: {{date}}",
+  "runVerification": "Run Verification",
+  "verifying": "Verifying",
+  "pleaseWait": "Please wait while we verify your credential.",
+  "successfulVerification": "This credential was verified successfully",
+  "unsuccessfulVerification": "This credential was not verified successfully.",
+  "warningVerification": "There is a warning about this credential.",
+  "issuerDetails": "Issuer Details",
+  "unknownRegistry": "Unknown Registry",
+  "moreInfo": "More Info",
+  "indicator": {
+    "verifying": "Verifying...",
+    "notVerified": "Not Verified",
+    "warning": "Warning",
+    "verified": "Verified"
+  },
+  "log": {
+    "hasExpired": "has expired",
+    "noExpirationDate": "no expiration date set",
+    "hasNotExpired": "has not expired",
+    "generalError": "There was an error verifing this credential.",
+    "unknownError": "There was an unknown error verifing this credential.",
+    "wellFormed": "is in a supported credential format",
+    "malFormed": "is not a recognized credential type",
+    "validSignature": "has a valid signature",
+    "invalidSignature": "has an invalid signature",
+    "knownIssuer": "has been issued by a known issuer",
+    "unknownIssuer": "isn't in a known issuer registry",
+    "notRevoked": "has not been revoked",
+    "revoked": "has been revoked",
+    "uncheckedRevocation": "Revocation status could not be checked",
+    "notSuspended": "has not been suspended",
+    "suspended": "has been suspended"
+  },
+  "signingError": "This credential cannot be verified. Note that the JSON code is sensitive to changes in code text including spaces and characters. Please ensure you have input the correct code.",
+  "signingErrorDetail": "Something has changed in the credential so that the electronic signature no longer matches the content. This could be something as simple as inadvertently adding a space.",
+  "unknownErrorDetail": "Please try again, or let us know."
+}

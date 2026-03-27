@@ -1,0 +1,10 @@
+{
+  "notFound": "404 credencial no trobada",
+  "checkLink": "Si us plau, comproveu que esteu visitant l'enllaç correcte.",
+  "checkHolder": "També podeu consultar amb el titular de la credencial per veure si ha deixat de compartir la credencial o si ha expirat.",
+  "notFoundTitle": "404: Credencial no trobada",
+  "confirmUrl": "Si us plau, confirmeu que heu introduït l'URL o l'enllaç públic correcte.",
+  "otherReasons": "Altres motius per a aquest error podrien incloure:",
+  "credentialExpired": "La credencial ha expirat",
+  "credentialUnshared": "El titular de la credencial ha deixat de compartir l'URL o l'enllaç públic"
+}

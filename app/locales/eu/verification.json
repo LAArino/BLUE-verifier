@@ -1,0 +1,41 @@
+{
+  "title": "Kredentzialaren egiaztapena eta balidazioa",
+  "thisCredential": "Kredentzial hau:",
+  "lastChecked": "Azken egiaztapena: {{date}}",
+  "runVerification": "Egiaztapena exekutatu",
+  "verifying": "Egiaztatzen",
+  "pleaseWait": "Mesedez, itxaron zure kredentzialaren egiaztapena egiten dugun bitartean.",
+  "successfulVerification": "Kredentzial hau behar bezala egiaztatu da",
+  "unsuccessfulVerification": "Kredentzial hau ezin izan da behar bezala egiaztatu.",
+  "warningVerification": "Kredentzial honi buruzko abisu bat dago.",
+  "issuerDetails": "Jaulkitzailearen xehetasunak",
+  "unknownRegistry": "Erregistro ezezaguna",
+  "moreInfo": "Informazio gehiago",
+  "indicator": {
+    "verifying": "Egiaztatzen...",
+    "notVerified": "Egiaztatu gabea",
+    "warning": "Abisua",
+    "verified": "Egiaztatua"
+  },
+  "log": {
+    "hasExpired": "iraungita dago",
+    "noExpirationDate": "ez du iraungitze-datarik ezarrita",
+    "hasNotExpired": "ez da iraungitu",
+    "generalError": "Errore bat gertatu da kredentzial hau egiaztatzean.",
+    "unknownError": "Errore ezezagun bat gertatu da kredentzial hau egiaztatzean.",
+    "wellFormed": "bateragarria den kredentzial-formatu batean dago",
+    "malFormed": "ez da aitortutako kredentzial mota bat",
+    "validSignature": "sinadura baliogarria du",
+    "invalidSignature": "sinadura baliogabea du",
+    "knownIssuer": "jaulkitzaile ezagun batek jaulki du",
+    "unknownIssuer": "ez dago jaulkitzaile ezagunen erregistro batean",
+    "notRevoked": "ez da errebokatua izan",
+    "revoked": "errebokatua izan da",
+    "uncheckedRevocation": "Errebokazio-egoera ezin izan da egiaztatu",
+    "notSuspended": "ez da etena izan",
+    "suspended": "etena izan da"
+  },
+  "signingError": "Kredentzial hau ezin da egiaztatu. Kontuan izan JSON kodea sentikorra dela testu-aldaketekiko, zuriuneak eta karaktereak barne. Mesedez, ziurtatu kode zuzena sartu duzula.",
+  "signingErrorDetail": "Zerbait aldatu da kredentzialean eta sinadura elektronikoak ez du jada edukiarekin bat egiten. Hau zerbait hain sinplea izan daiteke nola nahi gabe zuriune bat gehitzea.",
+  "unknownErrorDetail": "Mesedez, saiatu berriro, edo jakinarazi iezaguzu."
+}

@@ -1,0 +1,28 @@
+{
+  "pageTitle": "BLUE VerifierPlus FAQ",
+  "title": "BLUE VerifierPlus Frequently Asked Questions",
+  "whyTrustTitle": "Why trust us?",
+  "whyTrust1": "BLUE VerifierPlus is based on open source software developed by the <dccLink>Digital Credentials Consortium</dccLink>, a network of leading international universities designing an open infrastructure for digital academic credentials.",
+  "whyTrust2": "This instance has been evolved for <blueLink>BLUE</blueLink>, the academic trust network operated by <redirisLink>RedIRIS</redirisLink> (Red.es) in collaboration with <crueLink>CRUE Universidades Españolas</crueLink>.",
+  "whyTrust3": "This website implements <githubLink>open source libraries</githubLink> that support open technical standards for supported digital credentials.",
+  "whyTrust4": "Please contact <emailLink>blue@rediris.es</emailLink> with any questions.",
+  "formatsTitle": "What formats of digital academic credentials are supported?",
+  "formatsIntro": "BLUE VerifierPlus supports digital academic credentials:",
+  "formatsList": {
+    "w3c": "Using the W3C Verifiable Credential Data Model v1.1 and v2.0",
+    "ob3": "Expressed as Open Badges v3",
+    "jwtVc": "JWT-VC (ES256/P-256)",
+    "sdJwt": "SD-JWT VC with selective disclosure"
+  },
+  "formatsRequirements": "In addition, credentials must support the following standards and specifications for full verification:",
+  "requirementsList": {
+    "registry": "The issuer must exist in a supported registry (EBSI, BLUE, or DCC Known Issuers).",
+    "did": "The issuer and subject decentralized identifiers must be did:key, did:web, did:jwk, did:ebsi, or did:blue",
+    "crypto": "The appropriate cryptographic signing method must be used"
+  },
+  "publicLinkTitle": "What is a Public Link?",
+  "publicLink": "Users of the BLUE Learner Credential Wallet mobile app are able to create Public Links if they wish to share a credential from their wallet to anyone with the link.",
+  "contactTitle": "Who do I contact if I have more questions?",
+  "contact1": "For questions about BLUE VerifierPlus please email <emailLink>blue@rediris.es</emailLink>.",
+  "contact2": "To learn more about BLUE please visit <blueWikiLink>wiki.rediris.es/spaces/BLUE</blueWikiLink>."
+}

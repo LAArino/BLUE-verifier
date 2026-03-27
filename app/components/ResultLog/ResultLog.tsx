@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CredentialError } from '@/types/credential.d';
 import type { ResultLogProps } from './ResultLog.d';
 import styles from './ResultLog.module.css';
@@ -35,6 +36,7 @@ export enum LogMessages {
 
 export const ResultLog = ({ verificationResult }: ResultLogProps) => {
   const [moreInfo, setMoreInfo] = useState(false);
+  const { t } = useTranslation('verification');
 
 
   const ResultItem = ({
@@ -134,7 +136,7 @@ export const ResultLog = ({ verificationResult }: ResultLogProps) => {
     if (shouldShowKnownError) {
       return (
         <div>
-          <p data-testid={TestId.GeneralErrorMsg} className={styles.error}>{LogMessages.GeneralError}</p>
+          <p data-testid={TestId.GeneralErrorMsg} className={styles.error}>{t('log.generalError')}</p>
           {error?.message && (
             <div className={styles.errorContainer}>
               <p data-testid={TestId.ReturnedErrorMsg}>{error.message}</p>
@@ -145,20 +147,20 @@ export const ResultLog = ({ verificationResult }: ResultLogProps) => {
     } else if (hasSigningError) {
       return (
         <div>
-          <p data-testid={TestId.SigningErrorMsg} className={styles.error}>"This credential cannot be verified. Note that the JSON code is sensitive to changes in code text including spaces and characters. Please ensure you have input the correct code." <span className={styles.moreInfoLink} onClick={() => setMoreInfo(!moreInfo)}>More Info</span></p>
+          <p data-testid={TestId.SigningErrorMsg} className={styles.error}>{t('signingError')} <span className={styles.moreInfoLink} onClick={() => setMoreInfo(!moreInfo)}>{t('moreInfo')}</span></p>
           {moreInfo && (
             <div className={styles.errorContainer}>
-              <p>Something has changed in the credential so that the electronic signature no longer matches the content. This could be something as simple as inadvertently adding a space.</p>
+              <p>{t('signingErrorDetail')}</p>
             </div>
           )}
         </div>
       )
     } else if (hasUnknownError) {
       return (<div>
-        <p data-testid={TestId.UnknownErrorMsg} className={styles.error}>{LogMessages.UnknownError} <span className={styles.moreInfoLink} onClick={() => setMoreInfo(!moreInfo)}>More Info</span></p>
+        <p data-testid={TestId.UnknownErrorMsg} className={styles.error}>{t('log.unknownError')} <span className={styles.moreInfoLink} onClick={() => setMoreInfo(!moreInfo)}>{t('moreInfo')}</span></p>
         {moreInfo && (
           <div className={styles.errorContainer}>
-            <p>"Please try again, or let us know."</p>
+            <p>{t('unknownErrorDetail')}</p>
           </div>
         )}
       </div>)
@@ -175,26 +177,23 @@ export const ResultLog = ({ verificationResult }: ResultLogProps) => {
 
       return (
         <div className={styles.resultLog} data-testid={TestId.ResultLog}>
-          {/* <div className={styles.issuer}> */}
-          {/* <div className={styles.header}>Issuer</div> */}
-
           <ResultItem
             verified={!isMalformedError}
-            positiveMessage={LogMessages.WellFormed}
-            negativeMessage={LogMessages.MalFormed}
+            positiveMessage={t('log.wellFormed')}
+            negativeMessage={t('log.malFormed')}
             testId={TestId.MalformedLogMsg}
           />
 
           <ResultItem
             verified={logMap[LogId.ValidSignature] ?? true}
-            positiveMessage={LogMessages.ValidSignature}
-            negativeMessage={LogMessages.InvalidSignature}
+            positiveMessage={t('log.validSignature')}
+            negativeMessage={t('log.invalidSignature')}
             testId={TestId.SigningLogMsg}
           />
           <ResultItem
             verified={logMap[LogId.IssuerDIDResolves] ?? true}
-            positiveMessage={LogMessages.KnownIssuer}
-            warningMessage={LogMessages.UnknownIssuer}
+            positiveMessage={t('log.knownIssuer')}
+            warningMessage={t('log.unknownIssuer')}
             sourceLogId={LogId.IssuerDIDResolves}
             testId={TestId.IssuerLogMsg}
             issuer={true}
@@ -203,19 +202,16 @@ export const ResultLog = ({ verificationResult }: ResultLogProps) => {
           {
             <ResultItem
               verified={logMap[LogId.RevocationStatus] !== undefined ? logMap[LogId.RevocationStatus] : true}
-              positiveMessage={LogMessages.NotRevoked}
-              negativeMessage={verificationResult.hasStatusError ? LogMessages.UncheckedRevocation : LogMessages.Revoked}
+              positiveMessage={t('log.notRevoked')}
+              negativeMessage={verificationResult.hasStatusError ? t('log.uncheckedRevocation') : t('log.revoked')}
               testId={TestId.RevocationLogMsg}
             />
           }
-          {/* </div> */}
-          {/* <div className={styles.credential}> */}
-          {/* <div className={styles.header}>Credential</div> */}
 
           <ResultItem
             verified={expirationStatus === false ? false : true}
-            positiveMessage={!expirationDateExists ? LogMessages.NoExpirationDate : LogMessages.HasNotExpired}
-            warningMessage={LogMessages.HasExpired}
+            positiveMessage={!expirationDateExists ? t('log.noExpirationDate') : t('log.hasNotExpired')}
+            warningMessage={t('log.hasExpired')}
             sourceLogId={LogId.Expiration}
             testId={TestId.ExpirationLogMsg}
           />
@@ -223,13 +219,11 @@ export const ResultLog = ({ verificationResult }: ResultLogProps) => {
           {hasCredentialStatus && hasSuspensionStatus &&
             <ResultItem
               verified={logMap[LogId.SuspensionStatus] ?? true}
-              positiveMessage={LogMessages.NotSuspended}
-              negativeMessage={LogMessages.Suspended}
+              positiveMessage={t('log.notSuspended')}
+              negativeMessage={t('log.suspended')}
               testId={TestId.SuspensionLogMsg}
             />}
 
-
-          {/* </div> */}
         </div>
       )
     }

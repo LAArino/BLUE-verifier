@@ -1,0 +1,25 @@
+.selector {
+  background: transparent;
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 6px;
+  color: var(--text, inherit);
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-right: 8px;
+  outline: none;
+}
+
+.selector:focus {
+  border-color: var(--primary, #0070f3);
+}
+
+:global(.darkmode) .selector {
+  border-color: #555;
+  color: #eee;
+}
+
+:global(.darkmode) .selector option {
+  background: #2a2a2a;
+  color: #eee;
+}

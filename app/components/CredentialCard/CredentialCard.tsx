@@ -1,5 +1,6 @@
 'use client'
 import { DateTime, Info } from 'luxon';
+import { useTranslation } from 'react-i18next';
 import { CompletionDocumentSection } from '@/components/CompletionDocumentSection/CompletionDocumentSection';
 import { Issuer } from '@/components/Issuer/Issuer';
 import { IssuerObject, VerifiableCredential } from '@/types/credential.d';
@@ -22,6 +23,7 @@ export const CredentialCard = ({ credential, wasMulti = false }: CredentialCardP
   // TODO: add icon back to Issuer
   // NOTE: unused imports will be used when above features get reinstated
 
+  const { t, i18n } = useTranslation('credential');
   const displayValues = mapCredDataToDisplayValues(credential)
   const { verificationResult } = useVerificationContext();
 
@@ -41,7 +43,7 @@ export const CredentialCard = ({ credential, wasMulti = false }: CredentialCardP
           <span className={`material-icons-outlined ${styles.warningIcon}`}>
             warning
           </span>
-          <p className={styles.error}>Presentation had multiple credentials but only the first is displayed</p>
+          <p className={styles.error}>{t('multipleCredentials', { ns: 'home' })}</p>
         </div>
       )}
       <div className={styles.card}>
@@ -66,26 +68,26 @@ export const CredentialCard = ({ credential, wasMulti = false }: CredentialCardP
             {displayValues.achievementImage ? <img className={styles.achievementImage} src={displayValues.achievementImage} alt="achievement image" data-testid={TestId.AchievementImage}/> : null}
             <div>
               <h1 id='title' className={styles.credentialName} data-testid={TestId.CredentialName}>{displayValues.credentialName}</h1>
-              {displayValues.achievementType ? <p className={styles.achievementType} data-testid={TestId.AchievementType}>Achievement Type : {displayValues.achievementType}</p> : null}
-              {displayValues.vct ? <p className={styles.achievementType}>Type: {displayValues.vct}</p> : null}
+              {displayValues.achievementType ? <p className={styles.achievementType} data-testid={TestId.AchievementType}>{t('achievementType', { type: displayValues.achievementType })}</p> : null}
+              {displayValues.vct ? <p className={styles.achievementType}>{t('type', { vct: displayValues.vct })}</p> : null}
             </div>
           </div>
         </div>
         <div className={styles.mainCard}>
           <div className={styles.secondaryColumn}>
             <section>
-              <Issuer issuer={issuer} infoButtonPushed={infoButtonPushed} header='Issuer' />
+              <Issuer issuer={issuer} infoButtonPushed={infoButtonPushed} header={t('issuer')} />
               <div className={styles.headerRow}>
                 {displayValues.issuanceDate && (
-                  <InfoBlock header="Issuance Date" contents={DateTime.fromISO(displayValues.issuanceDate).toLocaleString(DateTime.DATE_MED)} testId={TestId.IssuanceDate} />
+                  <InfoBlock header={t('issuanceDate')} contents={DateTime.fromISO(displayValues.issuanceDate).setLocale(i18n.language).toLocaleString(DateTime.DATE_MED)} testId={TestId.IssuanceDate} />
                 )}
 
                 <InfoBlock
-                  header="Expiration Date"
+                  header={t('expirationDate')}
                   contents={
                     displayValues.expirationDate
-                      ? DateTime.fromISO(displayValues.expirationDate).toLocaleString(DateTime.DATE_MED)
-                      : "N/A"
+                      ? DateTime.fromISO(displayValues.expirationDate).setLocale(i18n.language).toLocaleString(DateTime.DATE_MED)
+                      : t('notApplicable')
                   }
                   testId={TestId.ExpirationDate}
                 />
@@ -101,18 +103,18 @@ export const CredentialCard = ({ credential, wasMulti = false }: CredentialCardP
 
           <div className={styles.primaryColumn}>
             {displayValues.issuedTo ?
-              <InfoBlock header="Issued To" contents={displayValues.issuedTo} testId={TestId.IssuedTo}/>
+              <InfoBlock header={t('issuedTo')} contents={displayValues.issuedTo} testId={TestId.IssuedTo}/>
               :
               null
             }
             {displayValues.credentialDescription ?
-              <InfoBlock header="Description" contents={displayValues.credentialDescription} testId={TestId.CredentialDescription}/>
+              <InfoBlock header={t('description')} contents={displayValues.credentialDescription} testId={TestId.CredentialDescription}/>
               :
               null
             }
             {displayValues.criteria && (
               <div>
-                <h3 className={styles.smallHeader}>Criteria</h3>
+                <h3 className={styles.smallHeader}>{t('criteria')}</h3>
                 {/* <div className={styles.credentialCriteria}>{displayValues.criteria}</div> */}
                 <div className={styles.markdownContainer} data-testid={TestId.CredentialCriteria}>
                   <ReactMarkdown >{displayValues.criteria}</ReactMarkdown>
@@ -131,7 +133,7 @@ export const CredentialCard = ({ credential, wasMulti = false }: CredentialCardP
             {/* Generic subject fields (DC4EU / non-OBv3 credentials) */}
             {displayValues.subjectFields && displayValues.subjectFields.length > 0 && (
               <div className={styles.subjectFields}>
-                <h3 className={styles.smallHeader}>Credential Details</h3>
+                <h3 className={styles.smallHeader}>{t('credentialDetails')}</h3>
                 <div className={styles.subjectFieldsGrid}>
                   {displayValues.subjectFields.map((field) => (
                     <div key={field.key} className={styles.subjectField}>
@@ -232,7 +234,7 @@ const mapCredDataToDisplayValues = (credential?: VerifiableCredential): Credenti
   if (!credentialName || credentialName === 'VerifiableCredential') {
     credentialName = credential.name
       ?? credential.type.find(t => t !== 'VerifiableCredential')
-      ?? 'Verifiable Credential';
+      ?? 'VerifiableCredential';
   }
 
   // Extract subject fields as generic key-value pairs

@@ -1,0 +1,41 @@
+{
+  "title": "Verifica e validazione della credenziale",
+  "thisCredential": "Questa credenziale:",
+  "lastChecked": "Ultimo controllo: {{date}}",
+  "runVerification": "Avvia verifica",
+  "verifying": "Verifica in corso",
+  "pleaseWait": "Attendere mentre verifichiamo la credenziale.",
+  "successfulVerification": "Questa credenziale è stata verificata con successo",
+  "unsuccessfulVerification": "Questa credenziale non è stata verificata con successo.",
+  "warningVerification": "C'è un avviso riguardante questa credenziale.",
+  "issuerDetails": "Dettagli dell'emittente",
+  "unknownRegistry": "Registro sconosciuto",
+  "moreInfo": "Maggiori informazioni",
+  "indicator": {
+    "verifying": "Verifica in corso...",
+    "notVerified": "Non verificata",
+    "warning": "Avviso",
+    "verified": "Verificata"
+  },
+  "log": {
+    "hasExpired": "è scaduta",
+    "noExpirationDate": "nessuna data di scadenza impostata",
+    "hasNotExpired": "non è scaduta",
+    "generalError": "Si è verificato un errore durante la verifica di questa credenziale.",
+    "unknownError": "Si è verificato un errore sconosciuto durante la verifica di questa credenziale.",
+    "wellFormed": "è in un formato di credenziale supportato",
+    "malFormed": "non è un tipo di credenziale riconosciuto",
+    "validSignature": "ha una firma valida",
+    "invalidSignature": "ha una firma non valida",
+    "knownIssuer": "è stata emessa da un emittente conosciuto",
+    "unknownIssuer": "non è presente in un registro di emittenti conosciuti",
+    "notRevoked": "non è stata revocata",
+    "revoked": "è stata revocata",
+    "uncheckedRevocation": "Lo stato di revoca non è stato verificabile",
+    "notSuspended": "non è stata sospesa",
+    "suspended": "è stata sospesa"
+  },
+  "signingError": "Questa credenziale non può essere verificata. Si noti che il codice JSON è sensibile alle modifiche del testo, inclusi spazi e caratteri. Assicurarsi di aver inserito il codice corretto.",
+  "signingErrorDetail": "Qualcosa è cambiato nella credenziale, pertanto la firma elettronica non corrisponde più al contenuto. Potrebbe trattarsi di qualcosa di semplice come l'aggiunta involontaria di uno spazio.",
+  "unknownErrorDetail": "Riprovare o contattarci."
+}
