@@ -15,11 +15,32 @@ type SessionState = {
 }
 
 const CREDENTIAL_PRESETS = [
+  // Generic
   { label: 'Any Credential', types: ['VerifiableCredential'], vctValues: [], typeNames: [], queryMode: 'presentation_definition' as const },
+  // Identity
   { label: 'Verifiable PID', types: [], vctValues: ['eu.europa.ec.eudi.pid.1', 'urn:eu.europa.ec.eudi:pid:1'], typeNames: ['VerifiablePID', 'PID', 'pid'], queryMode: 'dcql' as const },
   { label: 'Educational ID', types: [], vctValues: ['eu.europa.ec.eudi.eduid.1', 'urn:eu.europa.ec.eudi.eduid:1'], typeNames: ['EducationalID', 'EduID', 'eduid', 'EducationalCredential'], queryMode: 'dcql' as const },
-  { label: 'Higher Education Diploma', types: [], vctValues: ['eu.europa.ec.eudi.hed.1', 'urn:eu.europa.ec.eudi:hed:1'], typeNames: ['HigherEducationDiploma', 'HED', 'Diploma'], queryMode: 'dcql' as const },
-  { label: 'Proof of Enrolment', types: [], vctValues: ['eu.europa.ec.eudi.hepoe.1', 'urn:eu.europa.ec.eudi:hepoe:1'], typeNames: ['ProofOfEnrolment', 'HEPoE', 'Enrolment'], queryMode: 'dcql' as const },
+  { label: 'MyAcademicID', types: [], vctValues: [], typeNames: ['MyAcademicIDIssuer', 'MyAcademicID'], queryMode: 'dcql' as const },
+  { label: 'MyAllianceID', types: [], vctValues: [], typeNames: ['MyAllianceID'], queryMode: 'dcql' as const },
+  { label: 'European Student Card', types: [], vctValues: [], typeNames: ['EuropeanStudentCard', 'ESC'], queryMode: 'dcql' as const },
+  // Higher Education
+  { label: 'HE Diploma', types: [], vctValues: ['eu.europa.ec.eudi.hed.1', 'urn:eu.europa.ec.eudi:hed:1'], typeNames: ['EuropeanHigherEducationDiploma', 'HigherEducationDiploma', 'HED', 'Diploma'], queryMode: 'dcql' as const },
+  { label: 'HE Diploma Supplement', types: [], vctValues: ['eu.europa.ec.eudi.heds.1', 'urn:eu.europa.ec.eudi:heds:1'], typeNames: ['EuropeanHigherEducationDiplomaSupplement', 'HEDS'], queryMode: 'dcql' as const },
+  { label: 'HE Proof of Enrolment', types: [], vctValues: ['eu.europa.ec.eudi.hepoe.1', 'urn:eu.europa.ec.eudi:hepoe:1'], typeNames: ['EuropeanHigherEducationProofOfEnrolment', 'ProofOfEnrolment', 'HEPoE', 'Enrolment'], queryMode: 'dcql' as const },
+  { label: 'HE Microcredential', types: [], vctValues: ['eu.europa.ec.eudi.euhemc.1', 'urn:eu.europa.ec.eudi:euhemc:1'], typeNames: ['EuropeanHigherEducationMicrocredential', 'EUHEMC', 'Microcredential'], queryMode: 'dcql' as const },
+  { label: 'HE Transcript of Records', types: [], vctValues: ['eu.europa.ec.eudi.hetor.1', 'urn:eu.europa.ec.eudi:hetor:1'], typeNames: ['EuropeanHigherEducationTranscriptOfRecords', 'HEToR', 'TranscriptOfRecords'], queryMode: 'dcql' as const },
+  // Secondary & VET
+  { label: 'Upper Secondary Certificate', types: [], vctValues: ['eu.europa.ec.eudi.eusec.1', 'urn:eu.europa.ec.eudi:eusec:1'], typeNames: ['EuropeanUpperSecondaryEducationCertificate', 'EUSEC'], queryMode: 'dcql' as const },
+  { label: 'Upper Secondary Transcript', types: [], vctValues: ['eu.europa.ec.eudi.usetor.1', 'urn:eu.europa.ec.eudi:usetor:1'], typeNames: ['EuropeanUpperSecondaryEducationTranscriptOfRecords', 'USEToR'], queryMode: 'dcql' as const },
+  { label: 'VET Microcredential', types: [], vctValues: ['eu.europa.ec.eudi.vetmc.1', 'urn:eu.europa.ec.eudi:vetmc:1'], typeNames: ['EuropeanVocationalEducationTrainingMicrocredential', 'VETMC'], queryMode: 'dcql' as const },
+  // Professional / Health
+  { label: 'Professional ID', types: [], vctValues: [], typeNames: ['ProfessionalIdCredential'], queryMode: 'dcql' as const },
+  { label: 'Doctor ID', types: [], vctValues: [], typeNames: ['DoctorIdCredential'], queryMode: 'dcql' as const },
+  { label: 'Engineer ID', types: [], vctValues: [], typeNames: ['EngineerIdCredential'], queryMode: 'dcql' as const },
+  { label: 'Medical Training Accreditation', types: [], vctValues: [], typeNames: ['ContinuousMedicalTrainingAccreditation'], queryMode: 'dcql' as const },
+  { label: 'Professional Training', types: [], vctValues: [], typeNames: ['ProfessionalTrainingCredential'], queryMode: 'dcql' as const },
+  { label: 'Professional Suitability', types: [], vctValues: [], typeNames: ['ProfessionalSuitabilityCredential'], queryMode: 'dcql' as const },
+  { label: 'Continuous Professional Dev.', types: [], vctValues: [], typeNames: ['ContinuousProfessionalDevelopmentCredential', 'CPD'], queryMode: 'dcql' as const },
 ]
 
 export const OID4VPRequest = ({ onCredentialReceived }: OID4VPRequestProps) => {
