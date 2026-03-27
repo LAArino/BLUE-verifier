@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BLUE-verifier (fork of Verifier Plus) is a Next.js 15 application for verifying and displaying W3C Verifiable Credentials (VCs). It supports VC Data Model v1/v2, Open Badges 3.0, VPQR, JWT-VC, and SD-JWT formats. It integrates with EBSI/BLUE trust registries and supports OID4VP verifier-initiated credential requests. It also provides online credential storage with public link sharing via MongoDB. Forked from https://github.com/digitalcredentials/verifier-plus, extended for DC4EU.
+BLUE VerifierPlus (fork of Verifier Plus) is a Next.js 15 application for verifying and displaying W3C Verifiable Credentials (VCs). It supports VC Data Model v1/v2, Open Badges 3.0, VPQR, JWT-VC, and SD-JWT formats. It integrates with EBSI/BLUE trust registries and supports OID4VP verifier-initiated credential requests. It also provides online credential storage with public link sharing via MongoDB. Forked from https://github.com/digitalcredentials/verifier-plus, extended for DC4EU. Branded for BLUE, the academic trust network operated by RedIRIS (Red.es) in collaboration with CRUE Universidades Españolas.
 
 ## Commands
 
@@ -119,3 +119,8 @@ Playwright with three projects: DesktopChrome, MobileChrome, API. Visual regress
 - SSRF protections enforce HTTPS and block private IPs on did:web resolution and JWKS fetching
 - OID4VP sessions use in-memory LRU cache (not shared across instances; for multi-instance deployments, consider MongoDB or Redis)
 - Forked from `digitalcredentials/verifier-plus`; upstream is still available as `origin` remote
+- Branded as "BLUE VerifierPlus" for RedIRIS/CRUE; logos in `public/CRUE.jpg` and `public/RedIRIS.svg`
+- Footer links to https://wiki.rediris.es/spaces/BLUE and https://git.blue.rediris.es/blue
+- Contact email: blue@rediris.es (replaces verifierplus-support@mit.edu)
+- Legal jurisdiction: Kingdom of Spain (Terms), data controller: BLUE project at RedIRIS (Privacy)
+- JSX caveat: Turbopack/SWC parser requires single quotes for HTML attributes (`href='...'`) and `{'"'}` for literal double quotes in text content when both appear in the same file; using `"` directly in text mixed with `href="..."` attributes causes parse errors

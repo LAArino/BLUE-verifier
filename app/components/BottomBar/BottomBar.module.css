@@ -12,6 +12,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 24px;
   margin-top: 32px;
 }
 
@@ -32,6 +34,12 @@
 
 .logo {
   margin-bottom: 24px;
-  width: 113px;
+  height: 40px;
+  width: auto;
+}
+
+.logoRediris {
+  margin-bottom: 24px;
   height: 35px;
+  width: auto;
 }

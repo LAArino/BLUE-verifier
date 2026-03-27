@@ -1,25 +1,25 @@
-# verifier-plus
+# BLUE VerifierPlus
 
-verifier-plus is a [Next.js](https://nextjs.org/) application providing two related, but fundamentally separate services:
+BLUE VerifierPlus is a [Next.js](https://nextjs.org/) application providing two related, but fundamentally separate services:
 
 * ***Credential Verification and Display*** - A web page for viewing and verifying [Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/).
 
 * ***Online Credential Storage*** - server storage for Verifiable Credentials, to enable sharing a public link for a credential.
 
 > [!NOTE]
-> verifier-plus supports versions 1 and 2 of [Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/), including version 3 of [Open Badges](https://www.imsglobal.org/spec/ob/v3p0), but NOT version 2 of Open Badges.
+> BLUE VerifierPlus supports versions 1 and 2 of [Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/), including version 3 of [Open Badges](https://www.imsglobal.org/spec/ob/v3p0), but NOT version 2 of Open Badges.
 
 > [!NOTE]
-> **BLUE-verifier (this fork)** extends verifier-plus with DC4EU protocol support: JWT-VC, SD-JWT, EBSI/BLUE trust networks, and OID4VP verifier-initiated credential requests. See the [DC4EU Extensions](#dc4eu-extensions) section below.
+> **BLUE VerifierPlus** is a fork of [verifier-plus](https://github.com/digitalcredentials/verifier-plus) by the [Digital Credentials Consortium](http://dcconsortium.org), extended with DC4EU protocol support: JWT-VC, SD-JWT, EBSI/BLUE trust networks, and OID4VP verifier-initiated credential requests. It has been evolved for [BLUE](https://wiki.rediris.es/spaces/BLUE), the academic trust network operated by [RedIRIS](https://www.rediris.es/) (Red.es) in collaboration with [CRUE Universidades Españolas](https://www.crue.org/). See the [DC4EU Extensions](#dc4eu-extensions) section below.
 
 >[!TIP]
->The [Digital Credentials Consortium](http://dcconsortium.org) runs an instance of the original application at [verifierplus.org](https://verifierplus.org), but anyone is free to run their own instance elsewhere.
+>The [Digital Credentials Consortium](http://dcconsortium.org) runs an instance of the original application at [verifierplus.org](https://verifierplus.org). Contact: [blue@rediris.es](mailto:blue@rediris.es).
 
 Let's talk a bit about the two services: credential verification and credential storage.
 
 ## Credential Verification
 
-The landing page of VerifierPlus provides options for copy/pasting, uploading, linking to, or scanning a QR for a [Verifiable Credential](https://www.w3.org/TR/vc-data-model-2.0/). VerifierPlus displays a nicely formatted human-readable version of a credential, verifies the credential, and displays the results of verification.
+The landing page of BLUE VerifierPlus provides options for copy/pasting, uploading, linking to, or scanning a QR for a [Verifiable Credential](https://www.w3.org/TR/vc-data-model-2.0/). BLUE VerifierPlus displays a nicely formatted human-readable version of a credential, verifies the credential, and displays the results of verification.
 
 The key idea with [Verifiable Credentials](https://www.w3.org/TR/vc-data-model-2.0/) is that we can on-the-spot check the cryptographic signature of a Verifiable Credential to confirm that the credential hasn't been tampered with since it was signed. A full explanation of all that this entails is available in the [Verifiable Credentials Specification](https://www.w3.org/TR/vc-data-model-2.0/).
 
@@ -106,7 +106,7 @@ A fundamental idea behind Verifiable Credentials is that they are standalone, au
 
 Most notably, the credentials do not have to be stored on a public server owned by an issuer (or a company acting on behalf of the issuer), and verification of the credentials can happen anywhere, anytime, without needing to make a call back to the original issuer or to any kind of online service that the issuer provides. This affords the credential holder significantly increased privacy, control and long-term ownership of their own credentials than if the credential verification runs back to the issuer.
 
-However, because the credentials themselves are files, it can be difficult to manage them, and to share them with other people. So we usually encourage people to store their credentials in a so-called 'wallet' like our [Learner Credential Wallet](https://lcw.app) which consolidates the credentials in one place, in an app built specifically to help with things like receiving credentials, viewing credentials, verifying credentials, and sharing credentials.
+However, because the credentials themselves are files, it can be difficult to manage them, and to share them with other people. So we usually encourage people to store their credentials in a so-called 'wallet' like the [BLUE Learner Credential Wallet](https://wiki.rediris.es/spaces/BLUE) which consolidates the credentials in one place, in an app built specifically to help with things like receiving credentials, viewing credentials, verifying credentials, and sharing credentials.
 
  From within a wallet we can email, text message, AirDrop/QuickShare credentials, but even then it can be confusing for the receipient to know what to do with the file: how to view it and how to verify it. They can certainly do what we've described above and upload the file to VerifierPlus, but that takes some degree of understanding, and effort, and things can go wrong. During the copy/pasting for example, characters might get moved that affect the signature. And furthermore, we might even want to share our credendial more publicly with the world, which we of course can't feasibly do with email or text messages.
 
@@ -116,7 +116,7 @@ Furthermore when we share the link to the file, whoever downloads it still has t
 
 Our approach, therefore, has been to provide a storage service for credentials that makes it easy to upload the credential directly from the Learner Credential Wallet, and at the same time generates a link for the credential that doesn't just return the credential, but opens the credential directly in VerifierPlus, instantly displaying and verifying the credential. The recipient of such a link doesn't see the JSON code at all, just the nicely formatted view of the credential and its verification details.
 
-The Learner Credential Wallet also provides options making it easy to share that link with others either through email, messages, a QR code, or even by posting it to one's LinkedIn profile. 
+The BLUE Learner Credential Wallet also provides options making it easy to share that link with others either through email, messages, a QR code, or even by posting it to one's LinkedIn profile. 
 
 The storage service itself is simply three API endpoints for storing, retrieving, and deleting a credential. You can find them in the [/app/api/credentials/route.ts](/app/api/credentials/route.ts) file.
 
@@ -230,7 +230,7 @@ Note too that you can set which browsers you'd like to run the tests on using th
 
 ## DC4EU Extensions
 
-This fork (BLUE-verifier) adds support for the [DC4EU](https://dc4eu.eu/) (Digital Credentials for Europe) ecosystem:
+BLUE VerifierPlus adds support for the [DC4EU](https://dc4eu.eu/) (Digital Credentials for Europe) ecosystem:
 
 ### Supported Credential Formats
 - **JSON-LD VC** (Ed25519Signature2020, EdDSA-RDFC-2022) — original verifier-plus
@@ -250,7 +250,7 @@ Verifier-initiated credential requests via the OID4VP protocol:
 - **Query modes**: `presentation_definition` (legacy) and `dcql_query` (Draft 24+)
 - **Response modes**: `direct_post` (plain) and `direct_post.jwt` (JARM encrypted with ECDH-ES + A128GCM)
 - **Credential presets**: VerifiablePID, EducationalID, HigherEducationDiploma, ProofOfEnrolment
-- **Compatible wallets**: [Learner Credential Wallet](https://lcw.app) and any OID4VP-compliant wallet
+- **Compatible wallets**: [BLUE Learner Credential Wallet](https://wiki.rediris.es/spaces/BLUE) and any OID4VP-compliant wallet
 
 ### OID4VP API Routes
 - `POST /api/oid4vp/session` — Create a new OID4VP session

@@ -46,7 +46,7 @@ export default function Home() {
 
   useEffect(() => {
     document.documentElement.lang = "en";
-    document.title = "VerifierPlus Home page";
+    document.title = "BLUE VerifierPlus Home page";
 
     polyfill.loadOnce()
       .then((_: any) => { console.log('CHAPI polyfill loaded.') })
@@ -266,7 +266,7 @@ export default function Home() {
             {
               type: 'QueryByExample',
               credentialQuery: {
-                reason: 'VerifierPlus is requesting any credential for verification.',
+                reason: 'BLUE VerifierPlus is requesting any credential for verification.',
                 example: {
                   type: ['VerifiableCredential']
                 }
@@ -461,16 +461,17 @@ export default function Home() {
       <div className={styles.contentContainer}>
         <div>
           <h1 className={styles.title}>
-            VerifierPlus
+            BLUE VerifierPlus
           </h1>
           <p className={styles.version}>Version {version}</p>
           <p className={styles.descriptionBlock}>
-            VerifierPlus allows users to verify any <Link href='faq#supported'>supported</Link> digital academic
+            BLUE VerifierPlus allows users to verify any <Link href='faq#supported'>supported</Link> digital academic
             credential.
-            This site is hosted by
-            the <a href='https://digitalcredentials.mit.edu/'>Digital Credentials Consortium</a>
-            , a network of leading international universities designing an open
-            infrastructure for digital academic credentials. <Link href='faq#trust'>Why trust us?</Link>
+            This application was developed by
+            the <a href='https://digitalcredentials.mit.edu/'>Digital Credentials Consortium</a> and
+            has been evolved for <a href='https://wiki.rediris.es/spaces/BLUE'>BLUE</a>,
+            the academic trust network operated by <a href='https://www.rediris.es/'>RedIRIS</a> (Red.es)
+            in collaboration with <a href='https://www.crue.org/'>CRUE Universidades Españolas</a>. <Link href='faq#trust'>Why trust us?</Link>
           </p>
         </div>
 
@@ -491,7 +492,7 @@ export default function Home() {
             iconOpen={spinner}
             onOpen={startPolling}
             onClose={() => stopPolling(undefined)}
-            title="Request credentials from LCW" >
+            title="Request credentials from BLUE Wallet" >
             {/*             <p>
               <a className={styles.lcwLink} target={'_blank'} rel={'noreferrer'} href={lcwRequestUrl}><h3>Mobile Link</h3></a>
             </p> */}

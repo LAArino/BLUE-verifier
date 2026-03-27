@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VerifierPlus",
+  title: "BLUE VerifierPlus",
   description: "Academic Credential Verification",
 };
 
